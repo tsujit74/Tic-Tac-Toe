@@ -52,7 +52,7 @@ frstUp.addEventListener("click", function () {
     var inputText = textU.value;
     var length = inputText.length;
     if (length > 0) {
-        textU.value = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        textU.value = inputValue.replace(/\b\w/g,(match)=>match.toUpperCase());
         sttus.innerHTML = "Sucess.."
     } else {
         sttus.innerHTML = "Enter some text!";
