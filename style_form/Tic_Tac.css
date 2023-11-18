@@ -1,0 +1,70 @@
+
+/* #lght{
+    background-color: black;
+    color: white;
+    float: right;
+    
+} */
+.Tic_Tac_board{
+    display: grid;
+    grid-template-columns: repeat(3,80px);
+    gap: 4px;
+    margin: 10px auto;
+    margin: 0px 0px 0px 3px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.board_box{
+    width: 80px;
+    height: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #873c5d60 ;
+    color: white;
+}
+
+#message{
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.rst{
+    margin: 10xp 0px 0px 0px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.rs_t{
+    margin: 10xp 0px 0px 0px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    font-weight: 700;
+    border: 2px soid #000;
+    border-radius: 5px;
+    background-color:#430822ba ;
+    color: white;
+    cursor: pointer;
+}
+
+.rs_t:active{
+    padding: 9px 18px 9px 18px;
+}
+
+@media (max-width:600px) {
+    
+}

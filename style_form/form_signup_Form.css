@@ -1,0 +1,36 @@
+.signupForm{
+    display:none;
+    position:fixed;
+    background: linear-gradient(to right, #662D8C, #ED1E79);
+    width: fit-content;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    color: white;
+    border-radius: 25px 5px 25px 5px;
+    cursor: pointer;
+}
+
+.signup_head{
+    display: flex;
+}
+
+#cross{
+    color: rgb(101, 9, 9);
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#cross:hover{
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+}
+
+#cross:active{
+    font-size: 16px;
+}

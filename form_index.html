@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_form/content_body.css">
+    <link rel="stylesheet" href="style_form/Form-py.css">
+    <link rel="stylesheet" href="style_form/navbar.css">
+    <link rel="stylesheet" href="style_form/form_contact.css">
+    <link rel="stylesheet" href="style_form/form_signup_Form.css">
+    <link rel="stylesheet" href="style_form/Tic_Tac.css">
+    <link rel="stylesheet" href="style_form/validation.css">
+    <link rel="stylesheet" href="style_form/bars.css">
+    <link rel="stylesheet" href="style_form/TextU.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Test</title>
+</head>
+
+<body id="bdy">
+    <div action="" class="acess" id="acmain">
+        <div id="viewPage">
+            <input id="username" value=""
+                style="background: none; border: none; padding: 5px; font-size: 23px; color: yellow; font-weight: 600; margin-top: 10px;"
+                maxlength="9"></input><br>
+            <p style="color: rgb(255, 255, 255); text-align: center; margin: 25px 20px 0px 20px; font-size: 18px;">
+                Click
+                the button to close the Welcome page!</p>
+            <button onclick="viwPage(),setTimeout(open_form,10000)" class="viewbt" id="view1">Close</button
+                class="viewPage" id="view1">
+        </div>
+
+        <div class="acContent" id="ascnt1">
+            <h6
+                style="text-align: center;font-size: 24px; color: rgb(255, 255, 255); margin-bottom: 5px; font-weight: 400;">
+                ACESS <input type="password" name="" id="admin1" value="" oninput="validate()" placeholder="code">
+            </h6>
+            <div class="fa fa-user"
+                style="color: white; background: none; box-shadow: none; font-size: 20px; margin-right: 5px;"></div>
+            <label for="acess1" class="accPage ap" style="color: white;">Name:*<p id="acemsg"
+                    style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
+                </p>
+                <div class="apem">
+                    <input style="border-radius: 0px;" oninput="input_usr(value),spcl(),nam(value)" id="acess1"
+                        type="email" placeholder="your name" maxlength="20">
+                </div>
+            </label>
+
+            <label for="acess2" class="accpass ap" style="color: white;">Password:*<p id="acpmsg"
+                    style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
+                </p>
+                <div class="apem">
+                    <input style="border-radius: 0px;" type="password" id="acess2" oninput="spcl()" maxlength="12">
+                </div>
+            </label>
+
+            <div class="apb">
+                <button class="apbt" id="lbt" onclick="validate()" type="submit">Login</button>
+            </div>
+
+            <p id="acmsg" style="text-align: center; font-size: 14px; margin-top: 10px; color: yellow; height: 8px;">
+            </p>
+        </div>
+    </div>
+
+    <div class="all_body" id="allitem">
+        <header>
+            <div class="nav_br">
+                <div class="logo" style="float: left;">
+                    <font color="#f23566">5</font>
+                    <font color="#ff9966">U</font>
+                    <font color="#0f52ba">J</font>
+                    <font color="#753422">1</font>
+                    <font color="#00CID4">T</font>
+                </div>
+
+                <div class="nav_icon" id="nav-btn">&#9776</div>
+
+                <div class="nv_mnu" id="nav-mnu">
+                    <ul><input id="usrname" value=""
+                            style=" background:none; width: 60%; border: none;font-size: 15px; text-align: center; color: yellow; font-weight: 500;"
+                            readonly></input></ul>
+                    <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
+                    <ul class="tlink" onclick="openPage('TextU',this)" >TextU</ul>
+                    <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
+                    <ul class="tlink" onclick="openPage('Contact',this)">Contact</ul>
+                    <ul class="open_f tlink" onclick="open_form()">Login/SignUp</ul>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content_body" id="cntnt">
+                <div id="Home" class="tabcontent">
+                    <div class="content_head" style="display: flex;">
+                        <div>
+                            <h3>Tic-Tac-Toe </h3>
+                        </div>
+                    </div><br>
+                    <div class="msg" id="message">Player X turn</div>
+                    <div class="Tic_Tac_board">
+                        <button class="board_box" onclick="nxtmove(0)"></button>
+                        <button class="board_box" onclick="nxtmove(1)"></button>
+                        <button class="board_box" onclick="nxtmove(2)"></button>
+                        <button class="board_box" onclick="nxtmove(3)"></button>
+                        <button class="board_box" onclick="nxtmove(4)"></button>
+                        <button class="board_box" onclick="nxtmove(5)"></button>
+                        <button class="board_box" onclick="nxtmove(6)"></button>
+                        <button class="board_box" onclick="nxtmove(7)"></button>
+                        <button class="board_box" onclick="nxtmove(8)"></button>
+                    </div>
+                    <div class="rst">
+                        <button class="rs_t" onclick="resetBoard()">RESET</button>
+                    </div>
+                </div>
+
+                <div id="Contact" class="tabcontent">
+                    <div class="had">
+                        <h3>Contact</h3>
+                    </div>
+
+                    <form action="mailto:tsujeet440@gmail.com" method="post" class="contact_box">
+                        <h4>CONTACT</h4>
+                        <div class="c_Fname">
+                            First Name:
+                            <div>
+                                <input class="con_Fname" type="name" id="name" name="name" placeholder="Name" required>
+                            </div>
+                        </div>
+
+                        <div class="c_Lname">
+                            Last Name:
+                            <div>
+                                <input class="con_Lname" type="name" id="name" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="c_email">
+                            Email:
+                            <div>
+                                <input class="con_email" type="email" id="email" name="email"
+                                    placeholder="abc@gmail.com" style="width: 96%;" required>
+                            </div>
+                        </div>
+                        <div class="c_msg">
+                            <p class="msg">Message:</p>
+                            <textarea name="msg" class="con_msg" id="msg" cols="30" rows="4"></textarea>
+                        </div>
+
+                        <div class="c_botn">
+                            <div class="c_sbtn">
+                                <button class="con_sbtn" onclick="submitE()" type="submit">SEND</button>
+                            </div>
+                            <div class="c_rbtn">
+                                <button class="con_rbtn" type="reset">RESET</button>
+                            </div>
+                        </div>
+                        <div class="scl_media">
+                            <a href="https://www.facebook.com/sujit.thakur.7737769" class="fa fa-facebook"></a>
+                            <a href="https://www.instagram.com/direct/inbox/" class="fa fa-instagram"></a>
+                            <a href="https://github.com/tsujit74" class="fa fa-github"></a>
+                            <a href="https://www.linkedin.com/in/sujit-thakur-463b45229/" class="fa fa-linkedin"></a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div id="calculator" class="tabcontent">
+                <div>
+                    <h3>Calculator</h3>
+                    <div class="box">
+                        <div action="">
+                            <input type="text" placeholder="0" id="data" required readonly>
+                        </div>
+                        <div class="calc">
+                            <button onclick="ALL_clear()" id="clr" class="clac_bt highlight">AC</button>
+                            <button onclick="backspace()" class="clac_bt highlight">C</button>
+                            <button onclick="input_v('/')" class="clac_bt highlight">&divide;</button>
+                            <button onclick="percantage()" class="clac_bt highlight">%</button>
+                            <button onclick="input_v('7')" class="clac_bt">7</button>
+                            <button onclick="input_v('8')" class="clac_bt">8</button>
+                            <button onclick="input_v('9')" class="clac_bt">9</button>
+                            <button onclick="input_v('*')" class="clac_bt highlight">&times;</button>
+                            <button onclick="input_v('4')" class="clac_bt">4</button>
+                            <button onclick="input_v('5')" class="clac_bt">5</button>
+                            <button onclick="input_v('6')" class="clac_bt">6</button>
+                            <button onclick="input_v('-')" class="clac_bt highlight">&minus;</button>
+                            <button onclick="input_v('1')" class="clac_bt">1</button>
+                            <button onclick="input_v('2')" class="clac_bt">2</button>
+                            <button onclick="input_v('3')" class="clac_bt">3</button>
+                            <button onclick="input_v('+')" class="clac_bt highlight">&plus;</button>
+                            <button onclick="input_v('0')" class="clac_bt">0</button>
+                            <button onclick="input_v('00')" class="clac_bt">00</button>
+                            <button onclick="input_v('.')" class="clac_bt">.</button>
+                            <button onclick="exponention()" class="clac_bt highlight">^</button>
+                            <button onclick="calculateSin()" class="clac_bt highlight">sin</button>
+                            <button onclick="calculateCos()" class="clac_bt highlight">cos</button>
+                            <button onclick="calculateTan()" class="clac_bt highlight">tan</button>
+                            <button onclick="calculate()" id="result" class="clac_bt orng">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="auto_form" id="my_form">
+                <div class="container">
+                    <h4 style="text-align: center;">Login Form
+                        <span class="crs" style="float: right;">
+                            <span onclick="signup_close(),close_form()" id="cross" title="close"
+                                style="font-weight: 300; color: white;">X</span>
+                        </span>
+                    </h4>
+                    <label for="lgem" class="name" style="font-size: 20px;">Email:*
+                        <div class="form_email">
+                            <input id="lgem" type="email" required>
+                        </div>
+                    </label>
+
+                    <label for="lgps" class="name">Password:
+                        <div>
+                            <input type="password" id="lgps" required>
+                        </div>
+                    </label>
+
+                    <div class="fg" style="margin-top: 0px;">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <div class="chck_bx">
+                        <input class="chck" type="checkbox" id="cck" required> <a href="#">Accept term and
+                            Condition</a>
+                    </div>
+
+                    <div class="btm">
+                        <button class="bt" id="lbt" onclick="checkBox()" type="submit">Login</button>
+                    </div>
+
+                    <p id="chmsg"
+                        style="height: 5px; text-align: center; font-size: 16px; color:yellow; font-weight: 400;">
+                    </p>
+
+                    <div class="fot">Not a member?
+                        <a onclick="signup_open()" href="#">Signup now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signupForm" id="SignUp">
+                <h4 style="font-size: 28px; text-align: center;">Signup Form
+                    <span class="crs" style="float: right;">
+                        <span onclick="signup_close()" id="cross" title="close" style="float: right;">X</span>
+                    </span>
+                </h4>
+
+                <div class="c_Fname">
+                    First Name:
+                    <div>
+                        <input class="con_Fname" type="name" id="sign_name" placeholder="Name" required>
+                    </div>
+                </div>
+
+                <div class="c_Lname">
+                    Last Name:
+                    <div>
+                        <input class="con_Lname" type="name" id="sign_name" placeholder="Last Name" required>
+                    </div>
+                </div>
+
+                <div class="c_email">
+                    Email:
+                    <div>
+                        <input style="width: 97%;" class="con_email" type="email" id="sign_name"
+                            placeholder="abc@gmail.com" required>
+                    </div>
+                </div>
+
+                <div class="c_Fname">
+                    Date of Birth:
+                    <div>
+                        <input class="con_Fname" type="date" id="con_date" required>
+                    </div>
+                </div>
+
+                <div class="c_Lname">
+                    Gender:
+                    <div>
+                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="m">Male
+                            <input type="radio" name="gender" value="" id="m"></label>
+                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="f">Female
+                            <input type="radio" name="gender" value="" id="f"></label>
+                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="o">other
+                            <input type="radio" name="gender" value="" id="o"></label>
+                    </div>
+                </div>
+
+                <div class="c_Fname">
+                    Password:
+                    <div>
+                        <input style="width: 96%;" class="con_Fname" type="password" id="paswrd" placeholder="password"
+                            required>
+                    </div>
+                </div>
+
+                <div class="c_Lname">
+                    Confirm password:<span id="cpswrdmsg"
+                        style="font-size: 16px; font-weight: 400; margin-left: 5px; color:yellow;"></span>
+                    <div>
+                        <input oninput="signupsbmtBox()" style="width: 96%;" class="con_Lname" type="password"
+                            id="cpaswrd" placeholder="Confirm password" required>
+                    </div>
+                </div>
+
+                <div class="chck_bx">
+                    <input class="chck" type="checkbox" id="signcck" required> <a href="#">Accept term and
+                        Condition</a>
+                </div>
+
+                <div class="c_botn">
+                    <div class="c_sbtn">
+                        <button class="con_sbtn" id="signsbmt" onclick="signupsbmtBox()" type="submit">SUBMIT</button>
+                    </div>
+                    <div class="c_rbtn">
+                        <button class="con_rbtn" type="reset">RESET</button>
+                    </div>
+                </div>
+                <p style="text-align: center; color: yellow;" id="signupmsg"></p>
+            </div>
+
+            <div id="TextU" class="tabcontent">
+                <div class="content_head">
+                    <div style="display: flex;">
+                        <h3>Text-U</h3><p id="status"></p>
+                    </div>
+
+                    <div class="txtTitle">
+                        <h5 style="font-size: 16px;">Enter Text to What Ever You Want?</h4>
+                    </div>
+                    <div class="txtarea">
+                        <textarea class="Text" name="textname" id="Text1"></textarea>
+                    </div>
+
+                    <div class="TUbtnAll">
+                        <button id="uppr" class="Tbtn">Upper Case</button>
+                        <button id="lowr" class="Tbtn">Lower Case</button>
+                        <button id="fstUp" class="Tbtn">First Upper</button>
+                        <button id="extraSpace" class="Tbtn">Extra Space</button>
+                        <button id="cpy" class="Tbtn">Copy</button>
+                        <button id="tclr" class="Tbtn clr">Clear</button>
+                    </div>
+                
+                    <div class="abttxt">
+                        <p>Total Character: <span id="lnth" style="color: rgb(64, 47, 47);">0</span></p> 
+                        <p>Total Words: <span id="wrdCnt" style="color: rgb(64, 47, 47)">0</span></p>
+                    </div>
+
+                    <div class="txtTitle">
+                        <h5 style="font-size: 16px;">The Above Text Review Here!!</h4>
+                    </div>
+                    <div class="txtarea">
+                        <textarea class="Text" name="textname" id="TextAnz" placeholder="Nothing to Preview"
+                            readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="foot">Copyright © 2023. All Rights Reserved | Designed by S.T</div>
+        </footer>
+    </div>
+
+    <script src="JS_form/script_form_index.js"></script>
+</body>
+
+</html>

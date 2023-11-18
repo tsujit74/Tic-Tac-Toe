@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.tabcontent{
+  min-height: 535px;
+}
+
+.box {
+  width: 350px;
+  text-align: center;
+  border: 10px solid #000000b2;
+  border-radius: 8px;
+  margin: 30px 0px 0px 70px;
+  display: grid;
+  background-color: #280615c0;
+  box-shadow: 0px 1px 21px 2px rgba(240, 79, 79, 0.623);
+  cursor: pointer;
+  margin: auto;
+}
+
+.calc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0px 0px 5px 9px;
+}
+
+.clac_bt {
+  width: 70px;
+  padding: 12px;
+  font-size: 24px;
+  font-weight: 400;
+  background-color:#430822ba ;
+  color: white;
+  margin: 7px;
+  border-radius: 45%;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 11px 1px #69022fbd;
+}
+
+input[type="text"] {
+  width: 98%;
+  height: 125px;
+  text-align: right;
+  font-size: 28px;
+  font-weight: 700;
+  background-color: #ed1e7803;
+  color: rgb(255, 255, 255);
+  margin: 0px;
+  padding: 24px 0px 0px 0px;
+  border: none;
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+#clr {
+  grid-column: 1/2;
+  grid-row: 1;
+}
+
+.highlight {
+  background-color: rgb(80, 77, 77);
+  background-color:#43082200 
+}
+
+.orng {
+  background-color: rgba(132, 39, 0, 0.996);
+  box-shadow: 3px 3px 11px 1px rgba(111, 54, 0, 0.821);
+}
+
+footer{
+  background: linear-gradient(to right, #662d8c73, #ed1e786f);
+  color: black;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+  margin: auto;
+  cursor: pointer;
+}
+
+h3{
+  padding: 10px 0px 10px 5px;
+  cursor: pointer;
+}
+
+@media (max-width:600px) {
+  body {
+    width: 100%;
+    
+  }
+
+  .box {
+    margin: auto;
+    width: 93%;
+    text-align: center;
+    border-radius: 8px;
+    display: block;
+    cursor: pointer;
+  }
+
+  .calc {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1px 4px 8px 4px;
+  }
+
+  .clac_bt {
+    width: 77%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px;
+    border-radius: 45%;
+    box-shadow: 3px 1px 5px 1px rgb(61, 55, 55);
+  }
+
+  input[type="text"] {
+    width: 98%;
+    height: 50px;
+    font-size: 22px;
+    margin: 10px 0px 10px 0px;
+    padding: 30px 0px 0px 0px;
+  }
+
+  /* input[type="search"] {
+    width: 90%;
+    margin: 0px 12px 10px 0px;
+    padding: 5px 2px 5px 3px;
+  }
+
+  .tlink {
+    margin: 3px;
+    padding: 5px 7px 5px 7px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 7px;
+  }
+
+  .ttle{
+    margin: 0px;
+  }
+
+  .logo{
+    font-size: 24px;
+  } */
+
+  .foot{
+    font-size: 10px;
+  }
+}
