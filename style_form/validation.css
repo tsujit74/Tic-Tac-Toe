@@ -1,5 +1,5 @@
 .all_body {
-    display:none;
+    display none;
 
 }
 
@@ -24,7 +24,7 @@
 }
 
 .acess {
-   /* display: none; */
+    display: none;
     position: fixed;
     width: fit-content;
     height: fit-content;
@@ -89,7 +89,6 @@
     cursor: pointer;
     box-shadow: 4px 2px 15px 0px rgb(51, 49, 49);
     display: none;
-
 }
 
 #view1 {

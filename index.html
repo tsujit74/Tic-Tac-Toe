@@ -33,7 +33,7 @@
         <div class="acContent" id="ascnt1">
             <h6
                 style="text-align: center;font-size: 24px; color: rgb(255, 255, 255); margin-bottom: 5px; font-weight: 400;">
-                ACESS <input type="password" name="" id="admin1" value="" oninput="validate()" placeholder="code">
+                ACESS <input type="password" id="admin1" value="" oninput="validate()" placeholder="code" maxlength="4">
             </h6>
             <div class="fa fa-user"
                 style="color: white; background: none; box-shadow: none; font-size: 20px; margin-right: 5px;"></div>
@@ -81,9 +81,10 @@
                             style=" background:none; width: 60%; border: none;font-size: 15px; text-align: center; color: yellow; font-weight: 500;"
                             readonly></input></ul>
                     <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
-                    <ul class="tlink" onclick="openPage('TextU',this)" >TextU</ul>
+                    <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
                     <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
                     <ul class="tlink" onclick="openPage('Contact',this)">Contact</ul>
+                    <ul class="tlink" onclick="openPage('About',this)">About</ul>
                     <ul class="open_f tlink" onclick="open_form()">Login/SignUp</ul>
                 </div>
             </div>
@@ -97,6 +98,45 @@
                             <h3>Tic-Tac-Toe </h3>
                         </div>
                     </div><br>
+
+                    <div class="playInfo" id="info">
+                        <h6
+                            style="text-align: center;font-size: 24px; color: rgb(255, 255, 255); margin-bottom: 5px; font-weight: 400;">
+                            PLAYER
+                        </h6>
+                        <label for="playerName1" class="gameName">X-Player 1:*
+                            <div>
+                                <input class="pname1" id="playerName1" value="">
+                            </div>
+                        </label>
+
+                        <label for="playerName2" class="gameName" style="color: white;">O-Player 2:*
+                            <div>
+                                <input class="pname2" id="playerName2" value="">
+                            </div>
+                        </label>
+
+                        <div class="apb">
+                            <button type="submit" class="apbt" onclick="playerNam1()">Submit</button>
+                        </div>
+                    </div>
+
+                    <div id="showPlayer">
+                        <div id="infoplayer">
+                            <label for="playerName1" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player1- X
+                                <div>
+                                    <input class="shwName" id="name1" readonly></input>
+                                </div>
+                            </label>
+
+                            <label for="playerName2" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player2- O
+                                <div>
+                                    <input class="shwName" id="name2" readonly></input>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="msg" id="message">Player X turn</div>
                     <div class="Tic_Tac_board">
                         <button class="board_box" onclick="nxtmove(0)"></button>
@@ -110,7 +150,8 @@
                         <button class="board_box" onclick="nxtmove(8)"></button>
                     </div>
                     <div class="rst">
-                        <button class="rs_t" onclick="resetBoard()">RESET</button>
+                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">START</button>
+                        <button class="rs_t" id="rstboard" onclick="resetBoard()">RESET</button>
                     </div>
                 </div>
 
@@ -333,7 +374,8 @@
             <div id="TextU" class="tabcontent">
                 <div class="content_head">
                     <div style="display: flex;">
-                        <h3>Text-U</h3><p id="status"></p>
+                        <h3>Text-U</h3>
+                        <p id="status"></p>
                     </div>
 
                     <div class="txtTitle">
@@ -351,9 +393,9 @@
                         <button id="cpy" class="Tbtn">Copy</button>
                         <button id="tclr" class="Tbtn clr">Clear</button>
                     </div>
-                
+
                     <div class="abttxt">
-                        <p>Total Character: <span id="lnth" style="color: rgb(64, 47, 47);">0</span></p> 
+                        <p>Total Character: <span id="lnth" style="color: rgb(64, 47, 47);">0</span></p>
                         <p>Total Words: <span id="wrdCnt" style="color: rgb(64, 47, 47)">0</span></p>
                     </div>
 
@@ -363,6 +405,14 @@
                     <div class="txtarea">
                         <textarea class="Text" name="textname" id="TextAnz" placeholder="Nothing to Preview"
                             readonly></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about" class="tabcontent">
+                <div class="content_head">
+                    <div>
+                        <h3>About</h3>
                     </div>
                 </div>
             </div>

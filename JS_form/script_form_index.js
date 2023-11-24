@@ -1,35 +1,35 @@
-var textU = document.querySelector('#Text1');
-var textUAnz = document.querySelector('#TextAnz');
-var upper = document.querySelector('#uppr');
-var lower = document.querySelector('#lowr');
-var frstUp = document.querySelector('#fstUp');
-var extraSpaces = document.querySelector('#extraSpace');
-var clear = document.querySelector('#tclr');
-var cpy = document.querySelector('#cpy');
-var lngth = document.querySelector('#lnth');
-var wordCnt = document.querySelector('#wrdCnt');
-var sttus = document.querySelector('#status');
+let textU = document.querySelector('#Text1');
+let textUAnz = document.querySelector('#TextAnz');
+let upper = document.querySelector('#uppr');
+let lower = document.querySelector('#lowr');
+let frstUp = document.querySelector('#fstUp');
+let extraSpaces = document.querySelector('#extraSpace');
+let clear = document.querySelector('#tclr');
+let cpy = document.querySelector('#cpy');
+let lngth = document.querySelector('#lnth');
+let wordCnt = document.querySelector('#wrdCnt');
+let sttus = document.querySelector('#status');
 
 textU.addEventListener("input", function () {
     textUAnz.textContent = textU.value;
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputText = textU.value;
+    let length = inputText.length;
     lngth.innerHTML = length;
 
     inputText = inputText.trim();
-    var words = inputText.split(/\s+/);
+    let words = inputText.split(/\s+/);
     words = words.filter(function (word) {
         return word.length > 0;
     })
 
-    var wordCount = words.length;
+    let wordCount = words.length;
     wordCnt.innerHTML = wordCount;
     sttus.innerHTML = "";
 });
 
 upper.addEventListener("click", function () {
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
         textU.value = textU.value.toUpperCase();
         sttus.innerHTML = "Converted to Uper Case.."
@@ -38,8 +38,8 @@ upper.addEventListener("click", function () {
     }
 })
 lower.addEventListener("click", function () {
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
         textU.value = textU.value.toLowerCase();
         sttus.innerHTML = "Converted to lower Case.."
@@ -48,19 +48,19 @@ lower.addEventListener("click", function () {
     }
 })
 frstUp.addEventListener("click", function () {
-    var inputValue = textU.value;
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputValue = textU.value;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
-        textU.value = inputValue.replace(/\b\w/g,(match)=>match.toUpperCase());
+        textU.value = inputValue.replace(/\b\w/g, (match) => match.toUpperCase());
         sttus.innerHTML = "Sucess.."
     } else {
         sttus.innerHTML = "Enter some text!";
     }
 })
 clear.addEventListener("click", function () {
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
         if (window.confirm("Are you sure want to clear the box!")) {
             textU.value = "";
@@ -73,12 +73,11 @@ clear.addEventListener("click", function () {
     }
 })
 cpy.addEventListener("click", function () {
-    var inputValue = document.getElementById('Text1');
-    // var textCpy = inputValue.value;
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputValue = document.getElementById('Text1');
+    // let textCpy = inputValue.value;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
-        // sttus.innerHTML = "Enter some text!";
         navigator.clipboard.writeText(inputValue.value);
         sttus.innerHTML = "Copied..";
     } else {
@@ -87,8 +86,8 @@ cpy.addEventListener("click", function () {
 })
 extraSpaces.addEventListener("click", function () {
     let inputValue = textU.value;
-    var inputText = textU.value;
-    var length = inputText.length;
+    let inputText = textU.value;
+    let length = inputText.length;
     if (length > 0) {
         textU.value = inputValue.replace(/\s+/g, " ");
         sttus.innerHTML = "Space Removed.."
@@ -111,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function submitE() {
     let sendMsg = "Name:";
-    var name1 = document.getElementById('name').value;
-    var email2 = document.getElementById('email').value;
-    var msg3 = document.getElementById('msg').value;
+    let name1 = document.getElementById('name').value;
+    let email2 = document.getElementById('email').value;
+    let msg3 = document.getElementById('msg').value;
 
     sendMsg += name1 + "\nemail:" + email2;
     alert(sendMsg);
@@ -179,7 +178,7 @@ function viwPage() {
 
 function signupsbmtBox() {
     const sbmit = document.getElementById('signsbmt');
-    var checkbox = document.getElementById("signcck");
+    let checkbox = document.getElementById("signcck");
     let signmsg = document.getElementById('signupmsg');
     let pass = document.getElementById('paswrd').value;
     let cpass = document.getElementById('cpaswrd').value;
@@ -202,7 +201,7 @@ function signupsbmtBox() {
 }
 
 function checkBox() {
-    var checkbox = document.getElementById("cck");
+    let checkbox = document.getElementById("cck");
     let chck = document.getElementById('chmsg');
     let signmsg = document.getElementById('signupmsg');
 
@@ -244,7 +243,7 @@ function close_form() {
 }
 
 function openPage(pageName, elmnt) {
-    var i, tabcontent, tlinks;
+    let i, tabcontent, tlinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
@@ -264,7 +263,7 @@ function ALL_clear() {
 }
 
 function backspace() {
-    var data = document.getElementById('data');
+    let data = document.getElementById('data');
     data.value = data.value.slice(0, -1);
 }
 
@@ -323,10 +322,31 @@ function calculateTan() {
 }
 
 //TIC TAc part
+
+let playerInfo = document.getElementById('info');
+// let showInfo  = document.getElementsById('showPlayer');
+let showPlayer = document.getElementById('showPlayer');
+let player1 = document.getElementById('playerName1');
+let player2 = document.getElementById('playerName2');
+let name1 = document.getElementById('name1');
+let name2 = document.getElementById('name2');
+
 let curntPlayer = "X";
 let curentPlayer = "X";
 const box = document.querySelectorAll(".board_box");
 const message = document.getElementById('message');
+let resetbord = document.getElementById('rstboard');
+
+function startGame() {
+    playerInfo.style.display = "block";
+}
+
+function playerNam1() {
+    name1.value = player1.value;
+    name2.value = player2.value;
+    playerInfo.style.display = 'none';
+    showPlayer.style.display = "block";
+}
 
 function nxtmove(boxIndex) {
     if (!box[boxIndex].textContent) {
@@ -336,9 +356,15 @@ function nxtmove(boxIndex) {
 
         if (chckWinner()) {
             box.forEach((box) => (box.style.pointerEvents = 'none'));
-            curentPlayer = curntPlayer === 'X' ? 'O' : 'X';
-            message.textContent = `Player " ${curentPlayer} " Winner`
-
+            // curentPlayer = curntPlayer === 'X' ? 'O' : 'X';
+            // message.textContent = `Player " ${curentPlayer} " Winner`
+            if (curntPlayer != "X") {
+                name1.style.color = "yellow";
+                message.textContent = `Player "${name1.value}" Winner`;
+            } else {
+                name2.style.color = "yellow";
+                message.textContent = `Player "${name2.value}" Winner`;
+            }
         }
         else if ([...box].every((box) => box.textContent !== '')) {
             message.textContent = "Match Draw";
@@ -372,6 +398,8 @@ function resetBoard() {
     });
     curntPlayer = 'X';
     message.textContent = "Player X turn";
+    name1.style.color="black";
+    name2.style.color="black";
 }
 resetBoard();
 

@@ -1,13 +1,12 @@
-
 /* #lght{
     background-color: black;
     color: white;
     float: right;
     
 } */
-.Tic_Tac_board{
+.Tic_Tac_board {
     display: grid;
-    grid-template-columns: repeat(3,80px);
+    grid-template-columns: repeat(3, 80px);
     gap: 4px;
     margin: 10px auto;
     margin: 0px 0px 0px 3px;
@@ -16,7 +15,71 @@
     text-align: center;
 }
 
-.board_box{
+#info {
+    display :none;
+    position :fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 4px 2px 15px 0px rgb(51, 49, 49);
+    background-color: rgba(255, 9, 9, 0.232);
+    background: linear-gradient(to right, #662D8C, #ED1E79);
+    cursor: pointer;
+    padding: 25px 15px 25px 15px;
+    color: white;
+    transition: 3ms;
+}
+
+#showPlayer{
+    display: none;
+}
+
+#infoplayer{
+    padding: 10px;
+    display: flex;
+    background-color: #ed1e781a;
+    width: fit-content;
+    margin: auto;
+}
+
+.gameName {
+    font-size: 20px;
+    margin: 5px 0px 0px 0px;
+}
+
+.shwName{
+    padding: 3px 3px 3px 3px;
+    font-size: 16px;
+    width: 100px;
+    background: none;
+    border: none;
+    color: rgb(251, 43, 6);
+}
+
+.pname1{
+    margin: 1px 0px 15px 0px;
+    padding: 5px 5px 5px 5px;
+    width: 260px;
+    font-size: 16px;
+    background-color: rgb(255, 235, 235);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.pname2{
+    padding: 5px 5px 5px 5px;
+    width: 260px;
+    font-size: 16px;
+    background-color: rgb(255, 235, 235);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.board_box {
     width: 80px;
     height: 80px;
     font-size: 22px;
@@ -27,18 +90,18 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #873c5d60 ;
+    background-color: #873c5d60;
     color: white;
 }
 
-#message{
+#message {
     font-size: 20px;
     margin: 10px 0px 10px 0px;
     text-align: center;
     font-weight: 700;
 }
 
-.rst{
+.rst {
     margin: 10xp 0px 0px 0px;
     text-align: center;
     align-items: center;
@@ -47,7 +110,7 @@
     font-weight: 700;
 }
 
-.rs_t{
+.rs_t {
     margin: 10xp 0px 0px 0px;
     text-align: center;
     align-items: center;
@@ -56,15 +119,13 @@
     font-weight: 700;
     border: 2px soid #000;
     border-radius: 5px;
-    background-color:#430822ba ;
+    background-color: #430822ba;
     color: white;
     cursor: pointer;
 }
 
-.rs_t:active{
+.rs_t:active {
     padding: 9px 18px 9px 18px;
 }
 
-@media (max-width:600px) {
-    
-}
+@media (max-width:600px) {}
