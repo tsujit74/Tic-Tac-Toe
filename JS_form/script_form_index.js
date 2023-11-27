@@ -1,3 +1,4 @@
+//TEXT-U
 let textU = document.querySelector('#Text1');
 let textUAnz = document.querySelector('#TextAnz');
 let upper = document.querySelector('#uppr');
@@ -9,6 +10,15 @@ let cpy = document.querySelector('#cpy');
 let lngth = document.querySelector('#lnth');
 let wordCnt = document.querySelector('#wrdCnt');
 let sttus = document.querySelector('#status');
+
+function toggleContent(contentId) {
+    let content = document.getElementById(contentId);
+    if (content.style.display == "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
 
 textU.addEventListener("input", function () {
     textUAnz.textContent = textU.value;
@@ -97,7 +107,7 @@ extraSpaces.addEventListener("click", function () {
 });
 
 
-//form part
+//Acessing & welcome form part all form
 document.addEventListener('DOMContentLoaded', function () {
     const navIcon = document.getElementById('nav-btn');
     const navMnu = document.getElementById('nav-mnu');
@@ -176,6 +186,8 @@ function viwPage() {
     document.getElementById('acmain').style.display = 'none';
 }
 
+//SIGNUP FORM
+
 function signupsbmtBox() {
     const sbmit = document.getElementById('signsbmt');
     let checkbox = document.getElementById("signcck");
@@ -242,6 +254,7 @@ function close_form() {
 
 }
 
+//PAGE CHANGE
 function openPage(pageName, elmnt) {
     let i, tabcontent, tlinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -253,6 +266,7 @@ function openPage(pageName, elmnt) {
 
 document.getElementById("defaultOpen").click();
 
+//CALCUALTOR PART
 function input_v(value) {
     document.getElementById("data").value += value;
 }
@@ -324,7 +338,6 @@ function calculateTan() {
 //TIC TAc part
 
 let playerInfo = document.getElementById('info');
-// let showInfo  = document.getElementsById('showPlayer');
 let showPlayer = document.getElementById('showPlayer');
 let player1 = document.getElementById('playerName1');
 let player2 = document.getElementById('playerName2');
@@ -352,17 +365,18 @@ function nxtmove(boxIndex) {
     if (!box[boxIndex].textContent) {
         box[boxIndex].textContent = curntPlayer;
         curntPlayer = curntPlayer === 'X' ? 'O' : 'X';
-        message.textContent = `Player " ${curntPlayer} " turn`
+        message.textContent = `Player " ${curntPlayer} " turn`;
 
         if (chckWinner()) {
+            highLightWinner();
             box.forEach((box) => (box.style.pointerEvents = 'none'));
-            // curentPlayer = curntPlayer === 'X' ? 'O' : 'X';
-            // message.textContent = `Player " ${curentPlayer} " Winner`
             if (curntPlayer != "X") {
-                name1.style.color = "yellow";
+                name1.value=name1.value.toUpperCase();
+                name1.style.color = "red";
                 message.textContent = `Player "${name1.value}" Winner`;
             } else {
-                name2.style.color = "yellow";
+                name2.value=name2.value.toUpperCase();
+                name2.style.color = "red";
                 message.textContent = `Player "${name2.value}" Winner`;
             }
         }
@@ -383,11 +397,30 @@ function chckWinner() {
         [0, 4, 8],
         [2, 4, 6],
     ]
-
     return group.some((combination) => {
         const [a, b, c] = combination;
         return box[a].textContent && box[a].textContent === box[b].textContent && box[a].textContent === box[c].textContent;
-        message.textContent = "winner";
+    });
+}
+
+function highLightWinner() {
+    const group = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ]
+    return group.some((combination) => {
+        const [a, b, c] = combination;
+        if( box[a].textContent && box[a].textContent === box[b].textContent && box[a].textContent === box[c].textContent){
+            box[a].style.color="red";
+            box[b].style.color="red";
+            box[c].style.color="red";
+        }  
     });
 }
 
@@ -395,13 +428,11 @@ function resetBoard() {
     box.forEach((box) => {
         box.textContent = '';
         box.style.pointerEvents = 'auto';
+        box.style.color="white";
     });
     curntPlayer = 'X';
     message.textContent = "Player X turn";
-    name1.style.color="black";
-    name2.style.color="black";
+    name1.style.color = "black";
+    name2.style.color = "black";
 }
 resetBoard();
-
-//Light part
-

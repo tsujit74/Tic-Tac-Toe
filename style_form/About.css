@@ -1,0 +1,40 @@
+.aboutTic{
+    width: 95%;
+    margin-bottom: 10px;
+    margin: auto;
+}
+.aboutTic button{
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(to right, #662d8cda, #ed1e78bb);
+    border-radius: 10px;
+}
+
+.aboutTic button:focus,
+.aboutTic button:hover{
+    color: yellow;
+}
+
+.hiddenContent{
+    display: none;
+    background: linear-gradient(to right, #662d8c46, #ed1e7835);
+    padding: 10px;
+    font-size: 1em;
+    white-space:10px;
+    border-bottom: 3px solid red;
+    cursor: pointer;
+    width: 95%;
+    margin: auto;
+}
+
+.hiddenContent p{
+    color: rgb(0, 0, 0);
+    margin: 2px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.173);
+}
