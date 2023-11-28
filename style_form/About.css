@@ -15,6 +15,10 @@
     border-radius: 10px;
 }
 
+.aboutTic button:active{
+     background: linear-gradient(to right, #662d8cda, #ed1e786e);;
+}
+
 .aboutTic button:focus,
 .aboutTic button:hover{
     color: yellow;

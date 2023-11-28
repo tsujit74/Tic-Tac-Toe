@@ -1,5 +1,5 @@
 .all_body {
-    display none;
+    display: none;
 
 }
 
@@ -24,7 +24,7 @@
 }
 
 .acess {
-    display: none;
+    /* display: none; */
     position: fixed;
     width: fit-content;
     height: fit-content;
