@@ -165,8 +165,8 @@ function validate() {
     }
 }
 
-document.getElementById('ascnt1').addEventListener("keydown",function(event){
-    if(event.key==="Enter"){
+document.getElementById('ascnt1').addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
         event.preventDefault();
         validate();
     }
@@ -378,11 +378,11 @@ function nxtmove(boxIndex) {
             highLightWinner();
             box.forEach((box) => (box.style.pointerEvents = 'none'));
             if (curntPlayer != "X") {
-                name1.value=name1.value.toUpperCase();
+                name1.value = name1.value.toUpperCase();
                 name1.style.color = "red";
                 message.textContent = `Player "${name1.value}" Winner`;
             } else {
-                name2.value=name2.value.toUpperCase();
+                name2.value = name2.value.toUpperCase();
                 name2.style.color = "red";
                 message.textContent = `Player "${name2.value}" Winner`;
             }
@@ -423,11 +423,11 @@ function highLightWinner() {
     ]
     return group.some((combination) => {
         const [a, b, c] = combination;
-        if( box[a].textContent && box[a].textContent === box[b].textContent && box[a].textContent === box[c].textContent){
-            box[a].style.color="red";
-            box[b].style.color="red";
-            box[c].style.color="red";
-        }  
+        if (box[a].textContent && box[a].textContent === box[b].textContent && box[a].textContent === box[c].textContent) {
+            box[a].style.color = "red";
+            box[b].style.color = "red";
+            box[c].style.color = "red";
+        }
     });
 }
 
@@ -435,7 +435,7 @@ function resetBoard() {
     box.forEach((box) => {
         box.textContent = '';
         box.style.pointerEvents = 'auto';
-        box.style.color="white";
+        box.style.color = "white";
     });
     curntPlayer = 'X';
     message.textContent = "Player X turn";
