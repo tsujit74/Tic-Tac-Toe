@@ -165,6 +165,13 @@ function validate() {
     }
 }
 
+document.getElementById('ascnt1').addEventListener("keydown",function(event){
+    if(event.key==="Enter"){
+        event.preventDefault();
+        validate();
+    }
+});
+
 function spcl() {
     document.getElementById('admin1').style.display = "none";
     document.getElementById('acmsg').textContent = "";
