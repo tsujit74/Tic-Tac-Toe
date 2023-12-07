@@ -12,6 +12,13 @@
     margin: 0px 0px 0px 68px;
 }
 
+.acess1{
+    width: 250px;
+    padding: 3px 2px 3px 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 #admin1:focus {
     width: 10%;
     text-align: left;
@@ -36,7 +43,7 @@
 
 #ascnt1 {
     background-color: rgba(255, 9, 9, 0.232);
-    background: linear-gradient(to right, #662D8C, #ED1E79);
+    background-color: #7b284c;
     cursor: pointer;
     padding: 25px 15px 25px 15px;
     color: white;
@@ -77,6 +84,7 @@
 }
 
 #viewPage {
+    display: none;
     position: fixed;
     width: fit-content;
     height: fit-content;
@@ -84,11 +92,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 9, 9, 0.389);
-    background: linear-gradient(to right, #662D8C, #ED1E79);
+    background-color: #7b284c;
     text-align: center;
     cursor: pointer;
     box-shadow: 4px 2px 15px 0px rgb(51, 49, 49);
-    display: none;
+    
 }
 
 #view1 {

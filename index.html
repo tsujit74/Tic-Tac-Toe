@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="style_form/bars.css">
     <link rel="stylesheet" href="style_form/TextU.css">
     <link rel="stylesheet" href="style_form/About.css">
+    <link rel="stylesheet" href="style_form/userInfo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Test</title>
 </head>
 
-<body id="bdy">
+<body id="bdy" onload="calculate(),disableDay(),disableMonth()">
     <div action="" class="acess" id="acmain">
         <div id="viewPage">
             <input id="username" value=""
@@ -34,7 +35,7 @@
         <div class="acContent" id="ascnt1">
             <h6
                 style="text-align: center;font-size: 24px; color: rgb(255, 255, 255); margin-bottom: 5px; font-weight: 400;">
-                ACESS <input type="password" id="admin1" value="" oninput="validate()" placeholder="code" maxlength="4">
+                ACESS <input class="con_inpt" type="password" id="admin1" value="" oninput="validate()" placeholder="code" maxlength="4">
             </h6>
             <div class="fa fa-user"
                 style="color: white; background: none; box-shadow: none; font-size: 20px; margin-right: 5px;"></div>
@@ -42,7 +43,7 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input style="border-radius: 0px;" oninput="input_usr(value),spcl(),nam(value)" id="acess1"
+                    <input class="acess1" oninput="input_usr(value),spcl(),nam(value)" id="acess1"
                         type="email" placeholder="your name" maxlength="20">
                 </div>
             </label>
@@ -51,7 +52,8 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input style="border-radius: 0px;" type="password" id="acess2" oninput="spcl()" maxlength="12">
+                    <input class="acess1"  type="password" id="acess2" oninput="spcl()" maxlength="12">
+
                 </div>
             </label>
 
@@ -78,13 +80,11 @@
                 <div class="nav_icon" id="nav-btn">&#9776</div>
 
                 <div class="nv_mnu" id="nav-mnu">
-                    <ul><input id="usrname" value=""
-                            style=" background:none; width: 60%; border: none;font-size: 15px; text-align: center; color: yellow; font-weight: 500;"
-                            readonly></input></ul>
+                    <ul><input id="usrname" value="" onclick="userInfo()" readonly></input></ul>
                     <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
                     <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
                     <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
-                    <ul class="tlink" onclick="openPage('Contact',this)">Contact</ul>
+                    <ul class="tlink" onclick="openPage('Contact',this)" >Contact</ul>
                     <ul class="tlink" onclick="openPage('About',this)">About</ul>
                     <ul class="open_f tlink" onclick="open_form()">Login/SignUp</ul>
                 </div>
@@ -163,29 +163,29 @@
 
                     <form action="mailto:tsujeet440@gmail.com" method="post" class="contact_box">
                         <h4>CONTACT</h4>
-                        <div class="c_Fname">
+                        <div class="c_Fname con_txt">
                             First Name:
                             <div>
-                                <input class="con_Fname" type="name" id="name" name="name" placeholder="Name" required>
+                                <input class="con_Fname con_inpt" type="name" id="name" name="name" placeholder="Name" required>
                             </div>
                         </div>
 
-                        <div class="c_Lname">
+                        <div class="c_Lname con_txt">
                             Last Name:
                             <div>
-                                <input class="con_Lname" type="name" id="name" placeholder="Last Name" required>
+                                <input class="con_Lname con_inpt" type="name" id="name" placeholder="Last Name" required>
                             </div>
                         </div>
-                        <div class="c_email">
+                        <div class="c_email con_txt">
                             Email:
                             <div>
-                                <input class="con_email" type="email" id="email" name="email"
+                                <input class="con_email con_inpt" type="email" id="email" name="email"
                                     placeholder="abc@gmail.com" style="width: 96%;" required>
                             </div>
                         </div>
-                        <div class="c_msg">
+                        <div class="c_msg con_txt">
                             <p class="msg">Message:</p>
-                            <textarea name="msg" class="con_msg" id="msg" cols="30" rows="4"></textarea>
+                            <textarea name="msg" class="con_msg con_inpt" id="msg" cols="30" rows="4"></textarea>
                         </div>
 
                         <div class="c_botn">
@@ -209,42 +209,105 @@
 
             <div id="calculator" class="tabcontent">
                 <div>
-                    <h3>Calculator</h3>
-                    <div class="box">
-                        <div action="">
-                            <input type="text" placeholder="0" id="data" required readonly>
-                        </div>
-                        <div class="calc">
-                            <button onclick="ALL_clear()" id="clr" class="clac_bt highlight">AC</button>
-                            <button onclick="backspace()" class="clac_bt highlight">C</button>
-                            <button onclick="input_v('/')" class="clac_bt highlight">&divide;</button>
-                            <button onclick="percantage()" class="clac_bt highlight">%</button>
-                            <button onclick="input_v('7')" class="clac_bt">7</button>
-                            <button onclick="input_v('8')" class="clac_bt">8</button>
-                            <button onclick="input_v('9')" class="clac_bt">9</button>
-                            <button onclick="input_v('*')" class="clac_bt highlight">&times;</button>
-                            <button onclick="input_v('4')" class="clac_bt">4</button>
-                            <button onclick="input_v('5')" class="clac_bt">5</button>
-                            <button onclick="input_v('6')" class="clac_bt">6</button>
-                            <button onclick="input_v('-')" class="clac_bt highlight">&minus;</button>
-                            <button onclick="input_v('1')" class="clac_bt">1</button>
-                            <button onclick="input_v('2')" class="clac_bt">2</button>
-                            <button onclick="input_v('3')" class="clac_bt">3</button>
-                            <button onclick="input_v('+')" class="clac_bt highlight">&plus;</button>
-                            <button onclick="input_v('0')" class="clac_bt">0</button>
-                            <button onclick="input_v('00')" class="clac_bt">00</button>
-                            <button onclick="input_v('.')" class="clac_bt">.</button>
-                            <button onclick="exponention()" class="clac_bt highlight">^</button>
-                            <button onclick="calculateSin()" class="clac_bt highlight">sin</button>
-                            <button onclick="calculateCos()" class="clac_bt highlight">cos</button>
-                            <button onclick="calculateTan()" class="clac_bt highlight">tan</button>
-                            <button onclick="calculate()" id="result" class="clac_bt orng">=</button>
+                    <div class="calcNav" id="calcNav1">
+                        <ul class="clctlink" onclick="openPageCalc('intrest',this)" id="defaultOpencalc" >Intrest Calc</ul>
+                        <ul class="clctlink" onclick="openPageCalc('calci',this)" >Calculator</ul>
+                    </div>
+
+                    <div class="">
+                        <div class="box tab" id="calci">
+                            <div action="">
+                                <input type="text" placeholder="0" id="data" required readonly>
+                            </div>
+                            <div class="calc">
+                                <button onclick="ALL_clear()" id="clr" class="clac_bt highlight">AC</button>
+                                <button onclick="backspace()" class="clac_bt highlight">C</button>
+                                <button onclick="input_v('/')" class="clac_bt highlight">&divide;</button>
+                                <button onclick="percantage()" class="clac_bt highlight">%</button>
+                                <button onclick="input_v('7')" class="clac_bt">7</button>
+                                <button onclick="input_v('8')" class="clac_bt">8</button>
+                                <button onclick="input_v('9')" class="clac_bt">9</button>
+                                <button onclick="input_v('*')" class="clac_bt highlight">&times;</button>
+                                <button onclick="input_v('4')" class="clac_bt">4</button>
+                                <button onclick="input_v('5')" class="clac_bt">5</button>
+                                <button onclick="input_v('6')" class="clac_bt">6</button>
+                                <button onclick="input_v('-')" class="clac_bt highlight">&minus;</button>
+                                <button onclick="input_v('1')" class="clac_bt">1</button>
+                                <button onclick="input_v('2')" class="clac_bt">2</button>
+                                <button onclick="input_v('3')" class="clac_bt">3</button>
+                                <button onclick="input_v('+')" class="clac_bt highlight">&plus;</button>
+                                <button onclick="input_v('0')" class="clac_bt">0</button>
+                                <button onclick="input_v('00')" class="clac_bt">00</button>
+                                <button onclick="input_v('.')" class="clac_bt">.</button>
+                                <button onclick="exponention()" class="clac_bt highlight">^</button>
+                                <button onclick="calculateSin()" class="clac_bt highlight">sin</button>
+                                <button onclick="calculateCos()" class="clac_bt highlight">cos</button>
+                                <button onclick="calculateTan()" class="clac_bt highlight">tan</button>
+                                <button onclick="calculate()" id="result" class="clac_bt orng">=</button>
+                            </div>
                         </div>
                     </div>
+                    <!-- INtrest part -->
+                    
+                        <div class="containerInt tab" id="intrest">
+                            <label for="number1">
+                                Principal(₹)
+                                <div>
+                                    <input oninput="calculate()" class="inpt" id="number1" value="1000" placeholder="₹ 1000"
+                                        maxlength="8">
+                                </div>
+                            </label>
+
+                            <label for="number2">Rate(%)
+                                <div>
+                                    <input oninput="calculate()" class="inpt" id="number2" value="1" placeholder="1 %" maxlength="5">
+                                </div>
+                            </label>
+
+                            <label for="number3">Time(month)
+                                <input type="checkbox" name="" id="enableMonth" onclick="disableMonth()"><span
+                                    id="mnthmsg"></span>
+                                <div>
+                                    <input oninput="calculate()" class="inpt" id="number3" value="0" placeholder="0" maxlength="5">
+                                </div>
+                            </label>
+
+                            <label for="number4">Time(Day)
+                                <input type="checkbox" name="" id="enableDays" onclick="disableDay()"><span
+                                    id="daymsg"></span>
+                                <div>
+                                    <input oninput="calculate()" class="inpt" id="number4" value="0" placeholder="0" maxlength="5">
+                                </div>
+                            </label>
+
+                            <div class="calcult">
+                                <p id="interest"></p>
+                                <p id="principal"></p>
+                                <p id="total"></p>
+                            </div>
+                        </div>
+                    <!-- INtrest part -->
                 </div>
             </div>
 
 
+            <div class="userInfo" id="usrdata">
+                <p id="clsUsr">X</p>
+                <div class="name signInfo">
+                    Name:- <input class="signInfoBox" value="" id="shwName" readonly>
+                </div>
+                <div class="emai signInfo">
+                    Email:-<input class="signInfoBox" value="" id="shwEmail" readonly>
+                </div>
+                <div class="date signInfo">
+                    Date:-<input class="signInfoBox" value="" id="shwDate" readonly>
+                </div>
+                <div class="gend signInfo">
+                    Gender:-<input class="signInfoBox" value="" id="shwGender" readonly>
+                </div>
+                <a onclick="signup_open()" href="#">Signup now</a>
+            </div>
+            
             <div class="auto_form" id="my_form">
                 <div class="container">
                     <h4 style="text-align: center;">Login Form
@@ -255,13 +318,13 @@
                     </h4>
                     <label for="lgem" class="name" style="font-size: 20px;">Email:*
                         <div class="form_email">
-                            <input id="lgem" type="email" required>
+                            <input id="lgem" class="lgfrm" type="email" required>
                         </div>
                     </label>
 
                     <label for="lgps" class="name">Password:
                         <div>
-                            <input type="password" id="lgps" required>
+                            <input type="password" class="lgfrm" id="lgps" required>
                         </div>
                     </label>
 
@@ -295,64 +358,64 @@
                     </span>
                 </h4>
 
-                <div class="c_Fname">
+                <div class="con_txt">
                     First Name:
                     <div>
-                        <input class="con_Fname" type="name" id="sign_name" placeholder="Name" required>
+                        <input class="con_Fname con_inpt" type="name" id="sign_name" placeholder="Name" required>
                     </div>
                 </div>
 
-                <div class="c_Lname">
+                <div class="con_txt">
                     Last Name:
                     <div>
-                        <input class="con_Lname" type="name" id="sign_name" placeholder="Last Name" required>
+                        <input class="con_Lname con_inpt" type="name" id="sign_name" placeholder="Last Name" required>
                     </div>
                 </div>
 
-                <div class="c_email">
+                <div class="con_txt">
                     Email:
                     <div>
-                        <input style="width: 97%;" class="con_email" type="email" id="sign_name"
+                        <input style="width: 97%;" class="con_inpt" type="email" id="sign_email"
                             placeholder="abc@gmail.com" required>
                     </div>
                 </div>
 
-                <div class="c_Fname">
+                <div class=" con_txt">
                     Date of Birth:
                     <div>
-                        <input class="con_Fname" type="date" id="con_date" required>
+                        <input class="con_date con_inpt" type="date" id="con_date" required>
                     </div>
                 </div>
 
-                <div class="c_Lname">
+                <div class=" con_txt">
                     Gender:
                     <div>
-                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
-                            for="m">Male
-                            <input type="radio" name="gender" value="" id="m"></label>
-                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
-                            for="f">Female
-                            <input type="radio" name="gender" value="" id="f"></label>
-                        <label class="con_Lname" style="font: 16px sans-serif; color: black; cursor: pointer;"
-                            for="o">other
-                            <input type="radio" name="gender" value="" id="o"></label>
+                        <label class=" con_inpt" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="genderMale">Male
+                            <input type="radio" name="gender" value="Male" id="genderMale"></label>
+                        <label class=" con_inpt" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="genderFemale">Female
+                            <input type="radio" name="gender" value="Female" id="genderFemale"></label>
+                        <label class=" con_inpt" style="font: 16px sans-serif; color: black; cursor: pointer;"
+                            for="other">other
+                            <input type="radio" name="gender" value="" id="other"></label>
                     </div>
                 </div>
 
-                <div class="c_Fname">
+                <div class="con_txt">
                     Password:
                     <div>
-                        <input style="width: 96%;" class="con_Fname" type="password" id="paswrd" placeholder="password"
-                            required>
+                        <input style="width: 96%;" class="con_inpt" type="password" id="password"
+                            placeholder="password" required>
                     </div>
                 </div>
 
-                <div class="c_Lname">
+                <div class="con_txt">
                     Confirm password:<span id="cpswrdmsg"
                         style="font-size: 16px; font-weight: 400; margin-left: 5px; color:yellow;"></span>
                     <div>
-                        <input oninput="signupsbmtBox()" style="width: 96%;" class="con_Lname" type="password"
-                            id="cpaswrd" placeholder="Confirm password" required>
+                        <input style="width: 96%;" class="con_inpt" type="password" oninput="samePass()" id="cpaswrd"
+                            placeholder="Confirm password" required>
                     </div>
                 </div>
 
@@ -363,7 +426,8 @@
 
                 <div class="c_botn">
                     <div class="c_sbtn">
-                        <button class="con_sbtn" id="signsbmt" onclick="signupsbmtBox()" type="submit">SUBMIT</button>
+                        <button class="con_sbtn" id="signsbmt" onclick="signupsbmtBox(),givenInput()"
+                            type="submit">SUBMIT</button>
                     </div>
                     <div class="c_rbtn">
                         <button class="con_rbtn" type="reset">RESET</button>
@@ -383,7 +447,7 @@
                         <h5 style="font-size: 16px;">Enter Text to What Ever You Want?</h4>
                     </div>
                     <div class="txtarea">
-                        <textarea class="Text" name="textname" id="Text1"></textarea>
+                        <textarea class="Text" name="textname" id="Text1" maxlength="25000"></textarea>
                     </div>
 
                     <div class="TUbtnAll">
@@ -455,7 +519,8 @@
                     <button style="margin-top: 20px;" onclick="toggleContent('hiddenContent4')">CONTACT</button>
                     <div id="hiddenContent4" class="hiddenContent">
                         <p>In contact page user can contact us using the form and also send the message by through a
-                            <i>Email</i>.</p>
+                            <i>Email</i>.
+                        </p>
                         <p>In bottom of the form we will given a <b>linkedin github facebook instagram</b> account. user
                             can also contact through this all account.</p>
                     </div>

@@ -1,0 +1,62 @@
+.userInfo{
+    display: none;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    position: fixed;
+    width: 260px;
+    height: fit-content;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7b284c;
+    margin: 0;
+}
+
+.userInfo a{
+    text-align: center;
+    color: #ac6181;
+    font-size: 16px;
+}
+.userInfo a:hover{
+    color: #ED1E79;
+}
+
+.userInput{
+    color: white;
+    padding: 10px 10px 10px 10px;
+    position: fixed;
+    width: 260px;
+    height: fit-content;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #662D8C, #ED1E79);
+    margin: 0;
+}
+
+.signInfo{
+    font-size: 22px;
+    margin: 5px 0px 10px 0px;
+}
+
+.userInfo p{
+    color:rgb(255, 255, 255);
+    float: right;
+    padding: 2px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.signInfoBox{
+    padding: 6px 5px 6px 5px;
+    width: 52%;
+    white-space: nowrap;
+    font-size: 14px;
+    color: yellow;
+    border: none;
+    background: none;
+}
+
+.signInfoBox:focus{
+    outline: none;
+}

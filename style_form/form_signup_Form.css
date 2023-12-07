@@ -1,7 +1,7 @@
 .signupForm{
     display:none;
     position:fixed;
-    background: linear-gradient(to right, #662D8C, #ED1E79);
+    background-color: #7b284c;
     width: fit-content;
     height: fit-content;
     top: 50%;
@@ -18,7 +18,7 @@
 }
 
 #cross{
-    color: rgb(101, 9, 9);
+    color: rgb(255, 193, 193);
     font-weight: 500;
     font-size: 18px;
     cursor: pointer;

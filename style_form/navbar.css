@@ -3,12 +3,34 @@
   padding: 0;
 }
 
-.tabcontent{
+.tabcontent {
   min-height: 615px;
 }
 
+.calcNav {
+  display: flex;
+  margin: 3px 0px 15px 0px;
+  background-color: #28061553;
+  text-align: center;
+}
+
+.clctlink {
+  margin: 3px 12px 3px 12px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 4px 6px 4px 6px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.clctlink:active {
+  color: #fff;
+  background-color: #ed1e789b;
+}
+
 .box {
-  width: 350px;
+  display: none;
+  width: fit-content;
   text-align: center;
   border: 10px solid #000000b2;
   border-radius: 8px;
@@ -31,7 +53,7 @@
   padding: 12px;
   font-size: 24px;
   font-weight: 400;
-  background-color:#430822ba ;
+  background-color: #430822ba;
   color: white;
   margin: 7px;
   border-radius: 45%;
@@ -71,7 +93,7 @@ button:active {
 
 .highlight {
   background-color: rgb(80, 77, 77);
-  background-color:#43082200 
+  background-color: #43082200
 }
 
 .orng {
@@ -79,7 +101,7 @@ button:active {
   box-shadow: 3px 3px 11px 1px rgba(111, 54, 0, 0.821);
 }
 
-footer{
+footer {
   background: linear-gradient(to right, #662d8c73, #ed1e786f);
   color: black;
   text-align: center;
@@ -88,15 +110,88 @@ footer{
   cursor: pointer;
 }
 
-h3{
+h3 {
   padding: 10px 0px 10px 5px;
   cursor: pointer;
 }
 
+/* INTEREST PART*/
+.containerInt {
+  border: 1px solid #430822;
+  background-color: #57133026;
+  width: fit-content;
+  height: fit-content;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  margin: auto;
+}
+
+#enableMonth {
+  margin: 0px 0px 0px 20px;
+}
+
+#enableDays {
+  margin: 0px 0px 0px 20px;
+}
+
+.containerInt .inpt {
+  padding: 4px;
+  margin: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  width: 400px;
+  margin: 0px 10px 15px 10px;
+  outline: none;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #43082237;
+}
+
+.containerInt input:focus {
+  background-color: #630d3272;
+  outline: none;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+#daymsg {
+  font-size: 14px;
+}
+
+#mnthmsg {
+  font-size: 14px;
+}
+
+.calcult{
+  text-align: center;
+}
+
+#interest {
+  margin: 10px 0px 0px 0px;
+  font-weight: bold;
+  height: 20px;
+  font-size: 16px;
+}
+
+#principal {
+  margin: 15px 0px 10px 0px;
+  font-weight: bold;
+  height: 20px;
+  font-size: 16px;
+}
+
+#total {
+  margin: 15px 0px 10px 0px;
+  font-weight: bold;
+  height: 16px;
+  font-size: 16px;
+}
+
+/* INTEREST PART*/
+
 @media (max-width:600px) {
   body {
     width: 100%;
-    
+
   }
 
   .box {
@@ -132,31 +227,30 @@ h3{
     padding: 30px 0px 0px 0px;
   }
 
-  /* input[type="search"] {
-    width: 90%;
-    margin: 0px 12px 10px 0px;
-    padding: 5px 2px 5px 3px;
+  .containerInt {
+    width: 300px;
+    text-align: center;
+    margin: auto;
   }
 
-  .tlink {
-    margin: 3px;
-    padding: 5px 7px 5px 7px;
+  #enableMonth {
+    margin: 0px 0px 0px 20px;
+  }
+
+  #enableDays {
+    margin: 0px 0px 0px 20px;
+  }
+
+  .containerInt .inpt {
+    padding: 4px;
+    margin: 5px;
     font-size: 18px;
     font-weight: 600;
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 7px;
+    width: 220px;
+    margin: 0px 10px 15px 10px;
   }
 
-  .ttle{
-    margin: 0px;
-  }
-
-  .logo{
-    font-size: 24px;
-  } */
-
-  .foot{
+  .foot {
     font-size: 10px;
   }
 }

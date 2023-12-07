@@ -11,12 +11,12 @@
     color: white;
     font-weight: 600;
     cursor: pointer;
-    background: linear-gradient(to right, #662d8cda, #ed1e78bb);
+    background-color: #4d0b2889;
     border-radius: 10px;
 }
 
 .aboutTic button:active{
-     background: linear-gradient(to right, #662d8cda, #ed1e786e);;
+    background-color: #4d0b28c6;
 }
 
 .aboutTic button:focus,

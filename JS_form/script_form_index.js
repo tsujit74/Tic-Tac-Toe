@@ -11,6 +11,42 @@ let lngth = document.querySelector('#lnth');
 let wordCnt = document.querySelector('#wrdCnt');
 let sttus = document.querySelector('#status');
 
+//USER INFO
+let closeUsr = document.getElementById('clsUsr');
+let userData = document.querySelector('#usrdata');
+
+function userInfo() {
+    document.getElementById('usrdata').style.display = "block";
+}
+
+closeUsr.addEventListener("click", function () {
+    document.getElementById('usrdata').style.display = "none";
+})
+
+function givenInput() {
+    console.log("hi");
+    let inputFields = ['sign_name', 'sign_email', 'con_date', 'gender', 'password'];
+    let showFields = ['shwName', 'shwEmail', 'shwDate', 'shwGender', 'shwPassword'];
+    inputFields.forEach((field, index) => {
+        let inputData = document.getElementById(field);
+        let showData = document.getElementById(showFields[index]);
+
+        if (inputData || showData) {
+            if (field == 'gender') {
+                let genderMale = document.getElementById('genderMale');
+                let genderFemale = document.getElementById('genderFemale');
+                let other = document.getElementById('other');
+                showData.value = genderMale.checked ? genderMale.value : genderFemale.checked ? genderFemale.value : other.checked ? other.value : '';
+            } else {
+                showData.value = inputData.value;
+            }
+        } else {
+            console.error(`Input or show element not found for field: ${field}`);
+        }
+    })
+}
+
+//About PArt
 function toggleContent(contentId) {
     let content = document.getElementById(contentId);
     if (content.style.display == "block") {
@@ -19,7 +55,7 @@ function toggleContent(contentId) {
         content.style.display = "block";
     }
 }
-
+//TExt-U part
 textU.addEventListener("input", function () {
     textUAnz.textContent = textU.value;
     let inputText = textU.value;
@@ -35,6 +71,10 @@ textU.addEventListener("input", function () {
     let wordCount = words.length;
     wordCnt.innerHTML = wordCount;
     sttus.innerHTML = "";
+
+    if (length == 25000) {
+        sttus.textContent = "Character Limit Reached.";
+    }
 });
 
 upper.addEventListener("click", function () {
@@ -130,22 +170,22 @@ function submitE() {
 
 function validate() {
     const acemal = document.getElementById('acess1').value;
-    const acpass = document.getElementById('acess2').value;
-    const spclA = document.getElementById('admin1').value;
+    let acpass = document.getElementById('acess2').value;
+    let spclA = document.getElementById('admin1').value;
     const spusr = document.getElementById('usrname').value;
 
-    if (spclA == 0) {
+    if (spclA.length == 0) {
         if (acemal.length != 0) {
             document.getElementById('acemsg').textContent = "";
             if (acpass.length != 0) {
                 document.getElementById('acpmsg').textContent = "";
-                if (acpass == "123321") {
+                if (acpass.length >= 5) {
                     document.getElementById('ascnt1').style.display = "none";
                     document.getElementById('viewPage').style.display = "block"
                     document.getElementById('allitem').style.display = 'block';
                 }
                 else {
-                    document.getElementById('acmsg').textContent = "Invalid Password!";
+                    document.getElementById('acmsg').textContent = "Password must be 5 number or character";
                 }
             } else {
                 document.getElementById('acpmsg').textContent = "must required!";
@@ -162,6 +202,7 @@ function validate() {
         document.getElementById('allitem').style.display = 'block';
         document.getElementById('username').value = "welcome ADMIN";
         document.getElementById('usrname').value = "ADMIN";
+        document.getElementById('lgps').value = spclA;
     }
 }
 
@@ -180,7 +221,7 @@ function spcl() {
 function input_usr(value) {
     document.getElementById('username').value = "Welcome " + value;
     document.getElementById('usrname').value = value;
-    document.getElementById('acess2').value = "123321";
+    //document.getElementById('acess2').value = "123321";
 }
 
 function nam(value) {
@@ -189,50 +230,83 @@ function nam(value) {
 
 function viwPage() {
     document.getElementById('acmsg').textContent = "Acess";
-    //document.getElementById('view1').style.display = "block"
     document.getElementById('acmain').style.display = 'none';
 }
 
 //SIGNUP FORM
 
-function signupsbmtBox() {
-    const sbmit = document.getElementById('signsbmt');
-    let checkbox = document.getElementById("signcck");
-    let signmsg = document.getElementById('signupmsg');
-    let pass = document.getElementById('paswrd').value;
+document.getElementById('SignUp').addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
+        event.preventDefault();
+        signupsbmtBox();
+    }
+});
+
+function samePass() {
+    let pass = document.getElementById('password').value;
     let cpass = document.getElementById('cpaswrd').value;
     let cpmsg = document.getElementById('cpswrdmsg');
-
     if (pass == cpass) {
         cpmsg.textContent = "same";
-        sbmit.disabled = false;
     } else {
-        cpmsg.textContent = "*not same";
-        sbmit.disabled = true;
-    }
-
-    if (checkbox.checked) {
-        signmsg.textContent = "Account created!";
-    }
-    else {
-        signmsg.textContent = "Accept term & condition";
+        cpmsg.textContent = "not same";
     }
 }
+
+function signupsbmtBox() {
+    let checkbox = document.getElementById("signcck");
+    let signmsg = document.getElementById('signupmsg');
+    let pass = document.getElementById('password').value;
+    let cpass = document.getElementById('cpaswrd').value;
+    let cpmsg = document.getElementById('cpswrdmsg');
+    let name = document.getElementById('sign_name').value;
+    let email = document.getElementById('sign_email').value;
+    let date = document.getElementById('con_date').value;
+
+    if (name != '' && email != '' && date != '') {
+        if (pass == cpass) {
+            if (checkbox.checked) {
+                document.getElementById('SignUp').style.display = "none";
+                document.getElementById('password').value = "";
+                document.getElementById('cpaswrd').value = "";
+
+            } else {
+                signmsg.textContent = "Accept term & condition";
+            }
+        } else {
+            signmsg.textContent = "passWord not same";
+        }
+    } else {
+        alert("All field required!");
+    }
+}
+
+document.getElementById('my_form').addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
+        event.preventDefault();
+        checkBox();
+    }
+});
 
 function checkBox() {
     let checkbox = document.getElementById("cck");
     let chck = document.getElementById('chmsg');
     let signmsg = document.getElementById('signupmsg');
-
+    let lgem = document.getElementById('lgem');
+    let lgpass = document.getElementById('lgps');
+    let acpass = document.getElementById('acess2').value;
     if (checkbox.checked) {
-        chck.textContent = "Login Sucessfully!";
-        signmsg.textContent = "Account created!";
+        if (lgpass.value == acpass) {
+            document.getElementById('usrname').value = lgem.value;
+            document.getElementById('my_form').style.display = "none";
+        } else {
+            chck.textContent = "Invalid Password";
+        }
     }
     else {
         chck.textContent = "Accept term & condition";
         signmsg.textContent = "Accept term & condition";
     }
-
 }
 
 function signup_open() {
@@ -244,7 +318,7 @@ function signup_close() {
     document.getElementById('SignUp').style.display = "none";
     document.getElementById('my_form').style.display = "block";
     document.getElementById('signupmsg').textContent = "";
-    document.getElementById('paswrd').value = '';
+    document.getElementById('password').value = '';
     document.getElementById('cpaswrd').value = '';
     document.getElementById('cpswrdmsg').textContent = '';
 }
@@ -265,15 +339,34 @@ function close_form() {
 function openPage(pageName, elmnt) {
     let i, tabcontent, tlinks;
     tabcontent = document.getElementsByClassName("tabcontent");
+    tlinks = document.getElementsByClassName("tlink");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        tlinks[i].style.color = "";
     }
     document.getElementById(pageName).style.display = "block";
+    elmnt.style.color = "yellow";
 }
+    document.getElementById("defaultOpen").click();
 
-document.getElementById("defaultOpen").click();
 
 //CALCUALTOR PART
+
+function openPageCalc(pageName, elmnt) {
+    let i, tab, calctlink;
+    tab = document.getElementsByClassName('tab');
+    calctlink = document.getElementsByClassName('clctlink');
+    for (i = 0; i < tab.length; i++) {
+        tab[i].style.display = "none";
+        calctlink[i].style.color="";
+    }
+    
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.color = "yellow";
+}
+document.getElementById("defaultOpencalc").click();
+
+//
 function input_v(value) {
     document.getElementById("data").value += value;
 }
@@ -443,3 +536,68 @@ function resetBoard() {
     name2.style.color = "black";
 }
 resetBoard();
+
+//INTREST PART SCRIPT
+function calculate() {
+    let amount = document.getElementById('number1').value;
+    let rate = document.getElementById('number2').value;
+    let month = document.getElementById('number3').value;
+    let day = document.getElementById('number4').value;
+    let shwInterest = document.getElementById('interest');
+    let principal = document.getElementById('principal');
+    let total = document.getElementById('total');
+
+    let amountval = parseFloat(amount);
+    let rateval = parseFloat(rate);
+    let monthval = parseFloat(month);
+    let dayval = parseFloat(day);
+
+    if ((amountval > 0 && rateval > 0)) {
+        let intrstMonth = (amountval * rateval * monthval) / 100;
+        let intrstDay = (amountval * rateval * dayval) / (30 * 100);
+
+        let intrst = intrstMonth + intrstDay;
+
+        shwInterest.textContent = "Interest Earned: ₹ " + intrst.toFixed(2);
+        principal.textContent = "Principal: ₹" + amountval.toFixed(2);
+        let totalSum = intrst + amountval;
+        total.textContent = "Total Amount: ₹" + totalSum.toFixed(2);
+    } else {
+        shwInterest.textContent = "Please fill all Field."
+    }
+}
+
+function disableMonth() {
+    let mnthmsg = document.getElementById('mnthmsg');
+    let mnthInput = document.getElementById('number3');
+    let enablemnth = document.getElementById('enableMonth');
+    mnthInput.disabled = !enablemnth.checked;
+    if (!enablemnth.checked) {
+        mnthInput.value = 0;
+        mnthInput.style.backgroundColor = "#630d3272";
+        mnthmsg.textContent = "Off"
+    } else {
+        mnthmsg.textContent = "On"
+        mnthInput.value = 0;
+        mnthInput.style.backgroundColor = "#43082237";
+    }
+}
+
+function disableDay() {
+    let dayMsg = document.getElementById('daymsg');
+    let daysInput = document.getElementById('number4');
+    let enableDays = document.getElementById('enableDays');
+    daysInput.disabled = !enableDays.checked;
+    if (!enableDays.checked) {
+        daysInput.value = 0;
+        daysInput.style.backgroundColor = "#630d3272";
+        dayMsg.textContent = "Off"
+        calculate();
+    } else {
+        dayMsg.textContent = "On"
+        daysInput.value = 0;
+        daysInput.style.backgroundColor = "#43082237";
+        calculate();
+    }
+}
+//INTREST PART SCRIPT
