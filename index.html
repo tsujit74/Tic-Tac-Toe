@@ -80,7 +80,7 @@
                 <div class="nav_icon" id="nav-btn">&#9776</div>
 
                 <div class="nv_mnu" id="nav-mnu">
-                    <ul><input id="usrname" value="" onclick="userInfo()" readonly></input></ul>
+                    <ul class="fa fa-user"><input id="usrname" value="" onclick="userInfo()" readonly></input></ul>
                     <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
                     <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
                     <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
@@ -151,7 +151,7 @@
                         <button class="board_box" onclick="nxtmove(8)"></button>
                     </div>
                     <div class="rst">
-                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">START</button>
+                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">New Game</button>
                         <button class="rs_t" id="rstboard" onclick="resetBoard()">RESET</button>
                     </div>
                 </div>
@@ -243,7 +243,7 @@
                                 <button onclick="calculateSin()" class="clac_bt highlight">sin</button>
                                 <button onclick="calculateCos()" class="clac_bt highlight">cos</button>
                                 <button onclick="calculateTan()" class="clac_bt highlight">tan</button>
-                                <button onclick="calculate()" id="result" class="clac_bt orng">=</button>
+                                <button onclick="calculateCalc()" id="result" class="clac_bt orng">=</button>
                             </div>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
                                 style="font-weight: 300; color: white;">X</span>
                         </span>
                     </h4>
-                    <label for="lgem" class="name" style="font-size: 20px;">Email:*
+                    <label for="lgem" class="name" style="font-size: 20px;">Name:*
                         <div class="form_email">
                             <input id="lgem" class="lgfrm" type="email" required>
                         </div>

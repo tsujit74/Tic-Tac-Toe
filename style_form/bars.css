@@ -22,13 +22,13 @@ header {
 
 #usrname {
     background: none;
-    padding: 3px 0px 3px 0px;
-    width: 60%;
+    padding: 3px 3px 3px 5px;
+    width: 130px;
     border: none;
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
     color: rgba(255, 68, 0, 0.933);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -51,7 +51,7 @@ header {
 .nv_mnu ul {
     color: #ffffff;
     text-decoration: none;
-    padding: 8px;
+    padding: 8px 12px 8px 12px;
     font-size: 1.1em;
     text-decoration: none;
     cursor: pointer;

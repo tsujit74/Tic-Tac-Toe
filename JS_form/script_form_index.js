@@ -24,7 +24,6 @@ closeUsr.addEventListener("click", function () {
 })
 
 function givenInput() {
-    console.log("hi");
     let inputFields = ['sign_name', 'sign_email', 'con_date', 'gender', 'password'];
     let showFields = ['shwName', 'shwEmail', 'shwDate', 'shwGender', 'shwPassword'];
     inputFields.forEach((field, index) => {
@@ -43,7 +42,7 @@ function givenInput() {
         } else {
             console.error(`Input or show element not found for field: ${field}`);
         }
-    })
+    });
 }
 
 //About PArt
@@ -269,7 +268,6 @@ function signupsbmtBox() {
                 document.getElementById('SignUp').style.display = "none";
                 document.getElementById('password').value = "";
                 document.getElementById('cpaswrd').value = "";
-
             } else {
                 signmsg.textContent = "Accept term & condition";
             }
@@ -295,8 +293,10 @@ function checkBox() {
     let lgem = document.getElementById('lgem');
     let lgpass = document.getElementById('lgps');
     let acpass = document.getElementById('acess2').value;
+    let spclA = document.getElementById('admin1').value;
+    let pass = document.getElementById('password').value;
     if (checkbox.checked) {
-        if (lgpass.value == acpass) {
+        if (lgpass.value == acpass || lgpass.value == spclA) {
             document.getElementById('usrname').value = lgem.value;
             document.getElementById('my_form').style.display = "none";
         } else {
@@ -381,7 +381,7 @@ function backspace() {
     data.value = data.value.slice(0, -1);
 }
 
-function calculate() {
+function calculateCalc() {
     try {
         document.getElementById("data").value = eval(document.getElementById('data').value);
     }
@@ -452,6 +452,7 @@ let resetbord = document.getElementById('rstboard');
 
 function startGame() {
     playerInfo.style.display = "block";
+    resetBoard();
 }
 
 function playerNam1() {
