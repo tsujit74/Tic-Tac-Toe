@@ -35,7 +35,8 @@
         <div class="acContent" id="ascnt1">
             <h6
                 style="text-align: center;font-size: 24px; color: rgb(255, 255, 255); margin-bottom: 5px; font-weight: 400;">
-                ACESS <input class="con_inpt" type="password" id="admin1" value="" oninput="validate()" placeholder="code" maxlength="4">
+                ACESS <input class="con_inpt" type="password" id="admin1" value="" oninput="validate()"
+                    placeholder="code" maxlength="4">
             </h6>
             <div class="fa fa-user"
                 style="color: white; background: none; box-shadow: none; font-size: 20px; margin-right: 5px;"></div>
@@ -43,22 +44,23 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1" oninput="input_usr(value),spcl(),nam(value)" id="acess1"
-                        type="email" placeholder="your name" maxlength="20">
+                    <input class="acess1" oninput="input_usr(value),spcl(),nam(value)" id="acess1" type="text"
+                        placeholder="your name" maxlength="20">
                 </div>
             </label>
 
-            <label for="acess2" class="accpass ap" style="color: white;">Password:*<p id="acpmsg"
+            <label for="acess2" class="accpass ap" style="color: white;">Password:* <p id="acpmsg"
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1"  type="password" id="acess2" oninput="spcl()" maxlength="12">
+                    <input class="acess1" type="password" id="acess2" oninput="spcl()" maxlength="12">
 
                 </div>
             </label>
 
             <div class="apb">
                 <button class="apbt" id="lbt" onclick="validate()" type="submit">Login</button>
+                <input type="checkbox" id="chckpass"> show
             </div>
 
             <p id="acmsg" style="text-align: center; font-size: 14px; margin-top: 10px; color: yellow; height: 8px;">
@@ -84,7 +86,7 @@
                     <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
                     <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
                     <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
-                    <ul class="tlink" onclick="openPage('Contact',this)" >Contact</ul>
+                    <ul class="tlink" onclick="openPage('Contact',this)">Contact</ul>
                     <ul class="tlink" onclick="openPage('About',this)">About</ul>
                     <ul class="open_f tlink" onclick="open_form()">Login/SignUp</ul>
                 </div>
@@ -151,7 +153,8 @@
                         <button class="board_box" onclick="nxtmove(8)"></button>
                     </div>
                     <div class="rst">
-                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">New Game</button>
+                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">New
+                            Game</button>
                         <button class="rs_t" id="rstboard" onclick="resetBoard()">RESET</button>
                     </div>
                 </div>
@@ -166,14 +169,16 @@
                         <div class="c_Fname con_txt">
                             First Name:
                             <div>
-                                <input class="con_Fname con_inpt" type="name" id="name" name="name" placeholder="Name" required>
+                                <input class="con_Fname con_inpt" type="name" id="name" name="name" placeholder="Name"
+                                    required>
                             </div>
                         </div>
 
                         <div class="c_Lname con_txt">
                             Last Name:
                             <div>
-                                <input class="con_Lname con_inpt" type="name" id="name" placeholder="Last Name" required>
+                                <input class="con_Lname con_inpt" type="name" id="name" placeholder="Last Name"
+                                    required>
                             </div>
                         </div>
                         <div class="c_email con_txt">
@@ -210,14 +215,15 @@
             <div id="calculator" class="tabcontent">
                 <div>
                     <div class="calcNav" id="calcNav1">
-                        <ul class="clctlink" onclick="openPageCalc('intrest',this)" id="defaultOpencalc" >Intrest Calc</ul>
-                        <ul class="clctlink" onclick="openPageCalc('calci',this)" >Calculator</ul>
+                        <ul class="clctlink" onclick="openPageCalc('intrest',this)" id="defaultOpencalc">Intrest Calc
+                        </ul>
+                        <ul class="clctlink" onclick="openPageCalc('calci',this)">Calculator</ul>
                     </div>
 
                     <div class="">
                         <div class="box tab" id="calci">
                             <div action="">
-                                <input type="text" placeholder="0" id="data" required readonly>
+                                <input type="text" placeholder="0" class="clacScrn" id="data" required readonly>
                             </div>
                             <div class="calc">
                                 <button onclick="ALL_clear()" id="clr" class="clac_bt highlight">AC</button>
@@ -248,44 +254,47 @@
                         </div>
                     </div>
                     <!-- INtrest part -->
-                    
-                        <div class="containerInt tab" id="intrest">
-                            <label for="number1">
-                                Principal(₹)
-                                <div>
-                                    <input oninput="calculate()" class="inpt" id="number1" value="1000" placeholder="₹ 1000"
-                                        maxlength="8">
-                                </div>
-                            </label>
 
-                            <label for="number2">Rate(%)
-                                <div>
-                                    <input oninput="calculate()" class="inpt" id="number2" value="1" placeholder="1 %" maxlength="5">
-                                </div>
-                            </label>
-
-                            <label for="number3">Time(month)
-                                <input type="checkbox" name="" id="enableMonth" onclick="disableMonth()"><span
-                                    id="mnthmsg"></span>
-                                <div>
-                                    <input oninput="calculate()" class="inpt" id="number3" value="0" placeholder="0" maxlength="5">
-                                </div>
-                            </label>
-
-                            <label for="number4">Time(Day)
-                                <input type="checkbox" name="" id="enableDays" onclick="disableDay()"><span
-                                    id="daymsg"></span>
-                                <div>
-                                    <input oninput="calculate()" class="inpt" id="number4" value="0" placeholder="0" maxlength="5">
-                                </div>
-                            </label>
-
-                            <div class="calcult">
-                                <p id="interest"></p>
-                                <p id="principal"></p>
-                                <p id="total"></p>
+                    <div class="containerInt tab" id="intrest">
+                        <label for="number1">
+                            Principal(₹)
+                            <div>
+                                <input oninput="calculate()" class="inpt" id="number1" value="1000" placeholder="₹ 1000"
+                                    maxlength="8">
                             </div>
+                        </label>
+
+                        <label for="number2">Rate(%)
+                            <div>
+                                <input oninput="calculate()" class="inpt" id="number2" value="1" placeholder="1 %"
+                                    maxlength="5">
+                            </div>
+                        </label>
+
+                        <label for="number3">Time(month)
+                            <input type="checkbox" name="" id="enableMonth" onclick="disableMonth()"><span
+                                id="mnthmsg"></span>
+                            <div>
+                                <input oninput="calculate()" class="inpt" id="number3" value="0" placeholder="0"
+                                    maxlength="5">
+                            </div>
+                        </label>
+
+                        <label for="number4">Time(Day)
+                            <input type="checkbox" name="" id="enableDays" onclick="disableDay()"><span
+                                id="daymsg"></span>
+                            <div>
+                                <input oninput="calculate()" class="inpt" id="number4" value="0" placeholder="0"
+                                    maxlength="5">
+                            </div>
+                        </label>
+
+                        <div class="calcult">
+                            <p id="interest"></p>
+                            <p id="principal"></p>
+                            <p id="total"></p>
                         </div>
+                    </div>
                     <!-- INtrest part -->
                 </div>
             </div>
@@ -307,7 +316,7 @@
                 </div>
                 <a onclick="signup_open()" href="#">Signup now</a>
             </div>
-            
+
             <div class="auto_form" id="my_form">
                 <div class="container">
                     <h4 style="text-align: center;">Login Form
@@ -405,8 +414,8 @@
                 <div class="con_txt">
                     Password:
                     <div>
-                        <input style="width: 96%;" class="con_inpt" type="password" id="password"
-                            placeholder="password" required>
+                        <input style="width: 96%;" class="con_inpt" type="password" id="password" placeholder="password"
+                            required>
                     </div>
                 </div>
 

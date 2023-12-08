@@ -601,4 +601,15 @@ function disableDay() {
         calculate();
     }
 }
-//INTREST PART SCRIPT
+//Show password
+
+let chckPass = document.getElementById('chckpass');
+let inptPass = document.getElementById('acess2');
+
+chckPass.addEventListener("click",function(){
+    if(inptPass.type==="password"){
+        inptPass.type="text";
+    }else{
+        inptPass.type="password";
+    }
+})

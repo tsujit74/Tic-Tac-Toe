@@ -62,7 +62,7 @@
   box-shadow: 3px 3px 11px 1px #69022fbd;
 }
 
-input[type="text"] {
+.clacScrn {
   width: 98%;
   height: 125px;
   text-align: right;
@@ -79,8 +79,12 @@ input[type="text"] {
   text-overflow: ellipsis;
 }
 
-input:focus,
-input:active,
+/* .clacScrn[type="text"] {
+  
+} */
+
+.clacScrn:focus,
+.clacScrn:active,
 button:focus,
 button:active {
   outline: none;
@@ -147,7 +151,7 @@ h3 {
   background-color: #43082237;
 }
 
-.containerInt input:focus {
+.containerInt .clacScrn:focus {
   background-color: #630d3272;
   outline: none;
   border: 1px solid rgb(0, 0, 0);
@@ -161,7 +165,7 @@ h3 {
   font-size: 14px;
 }
 
-.calcult{
+.calcult {
   text-align: center;
 }
 
@@ -219,7 +223,7 @@ h3 {
     box-shadow: 3px 1px 5px 1px rgb(61, 55, 55);
   }
 
-  input[type="text"] {
+  .clacScrn[type="text"] {
     width: 98%;
     height: 50px;
     font-size: 22px;
