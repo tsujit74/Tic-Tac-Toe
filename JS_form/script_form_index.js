@@ -347,7 +347,7 @@ function openPage(pageName, elmnt) {
     document.getElementById(pageName).style.display = "block";
     elmnt.style.color = "yellow";
 }
-    document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click();
 
 
 //CALCUALTOR PART
@@ -358,9 +358,9 @@ function openPageCalc(pageName, elmnt) {
     calctlink = document.getElementsByClassName('clctlink');
     for (i = 0; i < tab.length; i++) {
         tab[i].style.display = "none";
-        calctlink[i].style.color="";
+        calctlink[i].style.color = "";
     }
-    
+
     document.getElementById(pageName).style.display = "block";
     elmnt.style.color = "yellow";
 }
@@ -606,10 +606,34 @@ function disableDay() {
 let chckPass = document.getElementById('chckpass');
 let inptPass = document.getElementById('acess2');
 
-chckPass.addEventListener("click",function(){
-    if(inptPass.type==="password"){
-        inptPass.type="text";
-    }else{
-        inptPass.type="password";
+chckPass.addEventListener("click", function () {
+    if (inptPass.type === "password") {
+        inptPass.type = "text";
+    } else {
+        inptPass.type = "password";
     }
 })
+
+//text Animation
+
+const textToType = "5UJ1T";
+const typingContainer = document.getElementById("txtTyp");
+let charIndex = 0;
+
+function typeText() {
+    typingContainer.innerHTML = textToType.slice(0, charIndex).split('').map(char => `<font color="${getRandomColor()}">${char}</font>`).join('');
+    charIndex++;
+
+    if (charIndex === textToType.length) {
+        typeText();
+    } else {
+        typingTimeout = setTimeout(typeText, 900);
+    }
+}
+
+function getRandomColor() {
+    const colors = ["#f23566", "#ff9966", "#0f52ba", "#753422", "#00CID4"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+typeText();

@@ -30,6 +30,7 @@ header {
     color: rgba(255, 68, 0, 0.933);
     font-weight: 600;
     cursor: pointer;
+    outline: none;
 }
 
 .logo {
@@ -75,10 +76,19 @@ header {
         left: 5%;
         transform: translate(90%, 4.3%);
         background: linear-gradient(to right, #1f0c2bc2, #600b30d8);
-        transition: 1.5s;
-
+        animation: slideIn 0.5s ease-in-out;
     }
 
+    @keyframes slideIn {
+        from {
+          opacity: 5;
+          transform: translateY(0px);
+        }
+        to {
+          opacity: 5;
+          transform: translateY(1);
+        }
+    }
     .nv_mnu ul {
         text-align: center;
         text-decoration: none;

@@ -10,6 +10,7 @@
     transform: translate(-50%, -50%);
     background-color: #7b284c;
     margin: 0;
+    animation: slideIn 0.2s ease-in-out;
 }
 
 .userInfo a{
