@@ -147,15 +147,21 @@ extraSpaces.addEventListener("click", function () {
 
 
 //Acessing & welcome form part all form
-document.addEventListener('DOMContentLoaded', function () {
+//document.addEventListener('DOMContentLoaded', function () {
     const navIcon = document.getElementById('nav-btn');
     const navMnu = document.getElementById('nav-mnu');
     const cntntbdy = document.getElementById('cntnt');
 
     navIcon.addEventListener("click", function () {
-        navMnu.style.display = (navMnu.style.display === "block") ? "none" : "block";
+        //navMnu.style.display = (navMnu.style.display === "block") ? "none" : "block";
+        if(navMnu.style.display=="block"){
+            navMnu.style.display="none";
+        }else{
+            navMnu.style.display="block";
+        }
     });
-});
+
+//});
 
 function submitE() {
     let sendMsg = "Name:";

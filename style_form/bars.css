@@ -82,11 +82,11 @@ header {
     @keyframes slideIn {
         from {
           opacity: 5;
-          transform: translateY(0px);
+          transform: translateX(500px);
         }
         to {
           opacity: 5;
-          transform: translateY(1);
+          transform: translateX(10);
         }
     }
     .nv_mnu ul {

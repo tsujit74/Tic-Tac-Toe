@@ -21,7 +21,7 @@
     cursor: pointer;
     padding: 25px 15px 25px 15px;
     color: white;
-    transition: 3ms;
+    animation: slideIn 0.2s ease-in-out;
 }
 
 #showPlayer{
