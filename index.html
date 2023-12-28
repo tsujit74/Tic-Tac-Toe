@@ -20,6 +20,7 @@
 </head>
 
 <body id="bdy" onload="calculate(),disableDay(),disableMonth()">
+    <div class="overlay" id="overlay"></div>
     <div action="" class="acess" id="acmain">
         <div id="viewPage">
             <input id="username" value=""
@@ -44,7 +45,7 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1" oninput="input_usr(value),spcl(),nam(value)" id="acess1" type="text"
+                    <input class="acess1" oninput="spcl(),nam(value)" id="acess1" type="text"
                         placeholder="your name" maxlength="20">
                 </div>
             </label>
@@ -53,13 +54,13 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1" type="password" id="acess2" oninput="spcl()" maxlength="12">
+                    <input class="acess1" type="password" id="acess2" oninput="spcl()" maxlength="12" placeholder="Any Password">
 
                 </div>
             </label>
 
             <div class="apb">
-                <button class="apbt" id="lbt" onclick="validate()" type="submit">Login</button>
+                <button class="apbt" id="lbt" type="submit">Login</button>
                 <input type="checkbox" id="chckpass"> show
             </div>
 
@@ -67,6 +68,7 @@
             </p>
         </div>
     </div>
+
 
     <div class="all_body" id="allitem">
         <header>

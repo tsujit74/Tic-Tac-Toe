@@ -148,18 +148,18 @@ extraSpaces.addEventListener("click", function () {
 
 //Acessing & welcome form part all form
 //document.addEventListener('DOMContentLoaded', function () {
-    const navIcon = document.getElementById('nav-btn');
-    const navMnu = document.getElementById('nav-mnu');
-    const cntntbdy = document.getElementById('cntnt');
+const navIcon = document.getElementById('nav-btn');
+const navMnu = document.getElementById('nav-mnu');
+const cntntbdy = document.getElementById('cntnt');
 
-    navIcon.addEventListener("click", function () {
-        //navMnu.style.display = (navMnu.style.display === "block") ? "none" : "block";
-        if(navMnu.style.display=="block"){
-            navMnu.style.display="none";
-        }else{
-            navMnu.style.display="block";
-        }
-    });
+navIcon.addEventListener("click", function () {
+    //navMnu.style.display = (navMnu.style.display === "block") ? "none" : "block";
+    if (navMnu.style.display == "block") {
+        navMnu.style.display = "none";
+    } else {
+        navMnu.style.display = "block";
+    }
+});
 
 //});
 
@@ -173,60 +173,61 @@ function submitE() {
     alert(sendMsg);
 }
 
-function validate() {
-    const acemal = document.getElementById('acess1').value;
-    let acpass = document.getElementById('acess2').value;
-    let spclA = document.getElementById('admin1').value;
-    const spusr = document.getElementById('usrname').value;
+function validateLogin() {
+    const acEmail = document.getElementById('acess1').value;
+    let acPassword = document.getElementById('acess2').value;
+    let adminPassword = document.getElementById('admin1').value;
 
-    if (spclA.length == 0) {
-        if (acemal.length != 0) {
+    if (adminPassword.length === 0) {
+        if (acEmail.length !== 0) {
             document.getElementById('acemsg').textContent = "";
-            if (acpass.length != 0) {
+            if (acPassword.length !== 0) {
                 document.getElementById('acpmsg').textContent = "";
-                if (acpass.length >= 5) {
+                if (acPassword.length >= 5) {
+                    // Continue with successful login logic
                     document.getElementById('ascnt1').style.display = "none";
-                    document.getElementById('viewPage').style.display = "block"
+                    document.getElementById('viewPage').style.display = "block";
                     document.getElementById('allitem').style.display = 'block';
-                }
-                else {
-                    document.getElementById('acmsg').textContent = "Password must be 5 number or character";
+                    document.getElementById('overlay').style.display = "none";
+                    let userName = acEmail;
+                    document.getElementById('usrname').value = userName;
+                    document.getElementById('username').value = "Welcome " + userName;
+                } else {
+                    document.getElementById('acmsg').textContent = "Password must be 5 numbers or characters";
                 }
             } else {
-                document.getElementById('acpmsg').textContent = "must required!";
+                document.getElementById('acpmsg').textContent = "Password is required!";
                 document.getElementById('acmsg').textContent = "";
             }
         } else {
-            document.getElementById('acemsg').textContent = "must required";
+            document.getElementById('acemsg').textContent = "Name is required";
             document.getElementById('acmsg').textContent = "";
         }
-    }
-    else if (spclA == "****") {
+    } else if (adminPassword === "****") {
+        // Continue with admin login logic
         document.getElementById('ascnt1').style.display = "none";
-        document.getElementById('viewPage').style.display = "block"
+        document.getElementById('viewPage').style.display = "block";
         document.getElementById('allitem').style.display = 'block';
-        document.getElementById('username').value = "welcome ADMIN";
+        document.getElementById('username').value = "Welcome ADMIN";
         document.getElementById('usrname').value = "ADMIN";
-        document.getElementById('lgps').value = spclA;
+        document.getElementById('lgps').value = adminPassword;
+        document.getElementById('overlay').style.display = "none";
     }
 }
 
+document.getElementById("lbt").addEventListener("click", validateLogin);
+
 document.getElementById('ascnt1').addEventListener("keydown", function (event) {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
         event.preventDefault();
-        validate();
+        validateLogin();
     }
 });
+
 
 function spcl() {
     document.getElementById('admin1').style.display = "none";
     document.getElementById('acmsg').textContent = "";
-}
-
-function input_usr(value) {
-    document.getElementById('username').value = "Welcome " + value;
-    document.getElementById('usrname').value = value;
-    //document.getElementById('acess2').value = "123321";
 }
 
 function nam(value) {
@@ -304,7 +305,7 @@ function checkBox() {
     if (checkbox.checked) {
         if (lgpass.value == acpass || lgpass.value == spclA) {
             document.getElementById('usrname').value = lgem.value;
-            document.getElementById('my_form').style.display = "none";
+            close_form();
         } else {
             chck.textContent = "Invalid Password";
         }
@@ -317,12 +318,12 @@ function checkBox() {
 
 function signup_open() {
     document.getElementById('SignUp').style.display = "block";
-    document.getElementById('my_form').style.display = "none";
+    close_form();
 }
 
 function signup_close() {
     document.getElementById('SignUp').style.display = "none";
-    document.getElementById('my_form').style.display = "block";
+    open_form()
     document.getElementById('signupmsg').textContent = "";
     document.getElementById('password').value = '';
     document.getElementById('cpaswrd').value = '';
@@ -331,7 +332,6 @@ function signup_close() {
 
 function open_form() {
     document.getElementById("my_form").style.display = "block";
-    document.getElementById('mor_opt').style.display = "none";
 }
 function close_form() {
     document.getElementById('my_form').style.display = "none";
@@ -340,6 +340,40 @@ function close_form() {
     chck.textContent = lgmsg;
 
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    let formSubmitted = false;
+    document.getElementById("acmain").style.display = "none";
+    setTimeout(function () {
+        if (!formSubmitted) {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("acmain").style.display = "block";
+        }
+        
+        document.body.addEventListener("click", function () {
+            closeForm();
+        });
+
+        document.getElementById("acmain").addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+    }, 5000);
+
+    function closeForm() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("acmain").style.display = "none";
+        document.getElementById('viewPage').style.display = "none";
+    
+        setTimeout(function () {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("acmain").style.display = "block";
+            formSubmitted = true;
+        }, 10000);
+    }
+});
+
+//Function of close First Acesss page
+
 
 //PAGE CHANGE
 function openPage(pageName, elmnt) {
@@ -625,16 +659,16 @@ chckPass.addEventListener("click", function () {
 const textToType = "5UJ1T";
 const typingContainer = document.getElementById("txtTyp");
 let charIndex = 0;
+let typingTimeout;
 
 function typeText() {
     typingContainer.innerHTML = textToType.slice(0, charIndex).split('').map(char => `<font color="${getRandomColor()}">${char}</font>`).join('');
     charIndex++;
 
-    if (charIndex === textToType.length) {
-        typeText();
-    } else {
-        typingTimeout = setTimeout(typeText, 900);
+    if (charIndex > textToType.length) {
+        charIndex = 1;
     }
+    typingTimeout = setTimeout(typeText, 900);
 }
 
 function getRandomColor() {
