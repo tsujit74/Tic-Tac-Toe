@@ -41,7 +41,7 @@
 }
 
 .acess {
-    position: absolute;
+    position:fixed;
     width: fit-content;
     height: fit-content;
     top: 40%;
