@@ -11,21 +11,10 @@ let lngth = document.querySelector('#lnth');
 let wordCnt = document.querySelector('#wrdCnt');
 let sttus = document.querySelector('#status');
 
-//USER INFO
-let closeUsr = document.getElementById('clsUsr');
-let userData = document.querySelector('#usrdata');
-
-function userInfo() {
-    document.getElementById('usrdata').style.display = "block";
-}
-
-closeUsr.addEventListener("click", function () {
-    document.getElementById('usrdata').style.display = "none";
-})
-
 function givenInput() {
-    let inputFields = ['sign_name', 'sign_email', 'con_date', 'gender', 'password'];
-    let showFields = ['shwName', 'shwEmail', 'shwDate', 'shwGender', 'shwPassword'];
+    let inputFields = ['sign_name','sign_Lname', 'sign_email', 'con_date', 'gender','sign_Phone','sign_City','sign_Pin','password'];
+    let showFields = ['shwName','shwLast', 'shwEmail', 'shwDate', 'shwGender','shwPhone','shwCity','shwPin' ,'shwPassword'];
+    document.getElementById('usrname').value=document.getElementById("sign_name").value;
     inputFields.forEach((field, index) => {
         let inputData = document.getElementById(field);
         let showData = document.getElementById(showFields[index]);
@@ -44,6 +33,26 @@ function givenInput() {
         }
     });
 }
+
+const inputs = document.querySelectorAll('.userProfile input');
+    function toggleEditMode() {
+        inputs.forEach(input => {
+            input.readOnly = false;
+        });
+        document.getElementById('userStatus').innerText = 'Edit mode is on';
+    }
+
+    function saveChanges() {
+        inputs.forEach(input => {
+            input.readOnly = true;
+            document.getElementById("usrname").value = document.getElementById("shwName").value;
+        });
+        document.getElementById('userStatus').innerText = 'Changes are saved!';
+    }
+
+    function logout() {
+        window.location.href = 'index.html';
+    }
 
 //About PArt
 function toggleContent(contentId) {
@@ -145,23 +154,17 @@ extraSpaces.addEventListener("click", function () {
     }
 });
 
-
-//Acessing & welcome form part all form
-//document.addEventListener('DOMContentLoaded', function () {
 const navIcon = document.getElementById('nav-btn');
 const navMnu = document.getElementById('nav-mnu');
 const cntntbdy = document.getElementById('cntnt');
 
 navIcon.addEventListener("click", function () {
-    //navMnu.style.display = (navMnu.style.display === "block") ? "none" : "block";
     if (navMnu.style.display == "block") {
         navMnu.style.display = "none";
     } else {
         navMnu.style.display = "block";
     }
 });
-
-//});
 
 function submitE() {
     let sendMsg = "Name:";
@@ -279,7 +282,7 @@ function signupsbmtBox() {
                 signmsg.textContent = "Accept term & condition";
             }
         } else {
-            signmsg.textContent = "passWord not same";
+            signmsg.textContent = "Password not same";
         }
     } else {
         alert("All field required!");
@@ -346,8 +349,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("acmain").style.display = "none";
     setTimeout(function () {
         if (!formSubmitted) {
-            document.getElementById("overlay").style.display = "block";
-            document.getElementById("acmain").style.display = "block";
+             document.getElementById("overlay").style.display = "block";
+             document.getElementById("acmain").style.display = "block";
         }
         
         document.body.addEventListener("click", function () {

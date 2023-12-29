@@ -45,8 +45,8 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1" oninput="spcl(),nam(value)" id="acess1" type="text"
-                        placeholder="your name" maxlength="20">
+                    <input class="acess1" oninput="spcl(),nam(value)" id="acess1" type="text" placeholder="your name"
+                        maxlength="20">
                 </div>
             </label>
 
@@ -54,7 +54,8 @@
                     style="text-align: center; font-size: 14px; color: yellow; display: inline; float: right;">
                 </p>
                 <div class="apem">
-                    <input class="acess1" type="password" id="acess2" oninput="spcl()" maxlength="12" placeholder="Any Password">
+                    <input class="acess1" type="password" id="acess2" oninput="spcl()" maxlength="12"
+                        placeholder="Any Password">
 
                 </div>
             </label>
@@ -84,7 +85,8 @@
                 <div class="nav_icon" id="nav-btn">&#9776</div>
 
                 <div class="nv_mnu" id="nav-mnu">
-                    <ul class="fa fa-user"><input id="usrname" value="" onclick="userInfo()" readonly></input></ul>
+                    <ul class="fa fa-user" onclick="openPage('User',this)"><input id="usrname" value=""
+                            onclick="userInfo()" readonly placeholder="User Name"></input></ul>
                     <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
                     <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
                     <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
@@ -302,22 +304,6 @@
             </div>
 
 
-            <div class="userInfo" id="usrdata">
-                <p id="clsUsr">X</p>
-                <div class="name signInfo">
-                    Name:- <input class="signInfoBox" value="" id="shwName" readonly>
-                </div>
-                <div class="emai signInfo">
-                    Email:-<input class="signInfoBox" value="" id="shwEmail" readonly>
-                </div>
-                <div class="date signInfo">
-                    Date:-<input class="signInfoBox" value="" id="shwDate" readonly>
-                </div>
-                <div class="gend signInfo">
-                    Gender:-<input class="signInfoBox" value="" id="shwGender" readonly>
-                </div>
-                <a onclick="signup_open()" href="#">Signup now</a>
-            </div>
 
             <div class="auto_form" id="my_form">
                 <div class="container">
@@ -329,13 +315,13 @@
                     </h4>
                     <label for="lgem" class="name" style="font-size: 20px;">Name:*
                         <div class="form_email">
-                            <input id="lgem" class="lgfrm" type="email" required>
+                            <input id="lgem" class="lgfrm" type="email" required placeholder="Change User Name">
                         </div>
                     </label>
 
                     <label for="lgps" class="name">Password:
                         <div>
-                            <input type="password" class="lgfrm" id="lgps" required>
+                            <input type="password" class="lgfrm" id="lgps" required placeholder="enter previous password">
                         </div>
                     </label>
 
@@ -379,7 +365,7 @@
                 <div class="con_txt">
                     Last Name:
                     <div>
-                        <input class="con_Lname con_inpt" type="name" id="sign_name" placeholder="Last Name" required>
+                        <input class="con_Lname con_inpt" type="name" id="sign_Lname" placeholder="Last Name" required>
                     </div>
                 </div>
 
@@ -410,6 +396,27 @@
                         <label class=" con_inpt" style="font: 16px sans-serif; color: black; cursor: pointer;"
                             for="other">other
                             <input type="radio" name="gender" value="" id="other"></label>
+                    </div>
+                </div>
+
+                <div class="con_txt">
+                    Phone:
+                    <div>
+                        <input class="con_Lname con_inpt" type="name" id="sign_Phone" placeholder="Phone" required>
+                    </div>
+                </div>
+
+                <div class="con_txt">
+                    City
+                    <div>
+                        <input class="con_Lname con_inpt" type="name" id="sign_City" placeholder="City" required>
+                    </div>
+                </div>
+
+                <div class="con_txt">
+                    Pin-Code
+                    <div>
+                        <input class="con_Lname con_inpt" type="name" id="sign_Pin" placeholder="Pin-code" required>
                     </div>
                 </div>
 
@@ -546,12 +553,34 @@
                 </div>
 
             </div>
+
+            <div id="User" class="tabcontent">
+                <div class="content_head">
+                    <h3>User Profile</h3>
+                </div>
+
+                <div class="userProfile" id="usrdata">
+                    <input type="text" class="FirstName" value="" id="shwName" placeholder="First Name" readonly>
+                    <input type="text" class="LastName" value="" id="shwLast" placeholder="Last Name" readonly>
+                    <input type="text" value="" id="shwGender" placeholder="Gender" readonly>
+                    <input type="text" value="" id="shwDate" placeholder="DOB" readonly>
+                    <input type="text" value="" id="shwEmail" placeholder="Email" readonly>
+                    <input type="text" value="" id="shwPhone" placeholder="Phone" readonly>
+                    <input type="text" value="" id="shwCity" placeholder="City" readonly>
+                    <input type="text" value="" id="shwPin" placeholder="Pin-code" readonly>
+                </div>
+                <div class="editButtons">
+                    <button onclick="toggleEditMode()">Edit</button>
+                    <button onclick="saveChanges()">Save</button>
+                    <button class="fa fa-sign-out" onclick="logout()">Logout</button>
+                </div>
+                <p id="userStatus"></p>
+            </div>
         </main>
         <footer>
             <div class="foot">Copyright © 2023. All Rights Reserved | Designed by S.T</div>
         </footer>
     </div>
-
     <script src="JS_form/script_form_index.js"></script>
 </body>
 
