@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("acmain").addEventListener("click", function (event) {
             event.stopPropagation();
         });
-    }, 5000);
+    }, 10000);
 
     function closeForm() {
         document.getElementById("overlay").style.display = "none";
