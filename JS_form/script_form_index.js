@@ -574,12 +574,12 @@ function resetBoard() {
         box.style.pointerEvents = 'auto';
         box.style.color = "white";
     });
-    curntPlayer = 'O';
-    message.textContent = "Player X turn";
+    message.textContent = `Player " ${curntPlayer} " turn`;
     name1.style.color = "black";
     name2.style.color = "black";
 }
 resetBoard();
+//message.textContent = "Player X turn";
 
 //INTREST PART SCRIPT
 function calculate() {
