@@ -29,7 +29,7 @@
             <p style="color: rgb(255, 255, 255); text-align: center; margin: 25px 20px 0px 20px; font-size: 18px;">
                 Click
                 the button to close the Welcome page!</p>
-            <button onclick="viwPage(),setTimeout(open_form,10000)" class="viewbt" id="view1">Close</button
+            <button onclick="viwPage(),setTimeout(open_form,70000)" class="viewbt" id="view1">Close</button
                 class="viewPage" id="view1">
         </div>
 
@@ -60,9 +60,9 @@
                 </div>
             </label>
 
-            <div class="apb">
+            <div class="apb" style="display: flex; margin-left: 50px;">
                 <button class="apbt" id="lbt" type="submit">Login</button>
-                <input type="checkbox" id="chckpass"> show
+                <input type="checkbox" id="chckpass" style="margin-left: 10px;"><p id="pwhide" style="margin: 5px;">show</p>
             </div>
 
             <p id="acmsg" style="text-align: center; font-size: 14px; margin-top: 10px; color: yellow; height: 8px;">
@@ -130,13 +130,13 @@
 
                     <div id="showPlayer">
                         <div id="infoplayer">
-                            <label for="playerName1" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player1- X
+                            <label for="playerName1" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player1-X:- <span class="winCount" id="player1Wins">0</span>
                                 <div>
                                     <input class="shwName" id="name1" readonly></input>
                                 </div>
                             </label>
 
-                            <label for="playerName2" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player2- O
+                            <label for="playerName2" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player2-O:- <span class="winCount" id="player2Wins">0</span>
                                 <div>
                                     <input class="shwName" id="name2" readonly></input>
                                 </div>
@@ -160,6 +160,11 @@
                         <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">New
                             Game</button>
                         <button class="rs_t" id="rstboard" onclick="resetBoard()">RESET</button>
+                        <button class="rs_t" id="countReset" onclick="resetCount()">count 0</button>
+                    </div>
+                    <div class="countInfo">
+                        Match Draw :- <span class="drawCount winCount" id="drawCount">0</span> <br>
+                        Round :- <span class="TotalCount winCount" id="totalRound">1</span>
                     </div>
                 </div>
 

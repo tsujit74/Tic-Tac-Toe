@@ -12,9 +12,9 @@ let wordCnt = document.querySelector('#wrdCnt');
 let sttus = document.querySelector('#status');
 
 function givenInput() {
-    let inputFields = ['sign_name','sign_Lname', 'sign_email', 'con_date', 'gender','sign_Phone','sign_City','sign_Pin','password'];
-    let showFields = ['shwName','shwLast', 'shwEmail', 'shwDate', 'shwGender','shwPhone','shwCity','shwPin' ,'shwPassword'];
-    document.getElementById('usrname').value=document.getElementById("sign_name").value;
+    let inputFields = ['sign_name', 'sign_Lname', 'sign_email', 'con_date', 'gender', 'sign_Phone', 'sign_City', 'sign_Pin', 'password'];
+    let showFields = ['shwName', 'shwLast', 'shwEmail', 'shwDate', 'shwGender', 'shwPhone', 'shwCity', 'shwPin', 'shwPassword'];
+    document.getElementById('usrname').value = document.getElementById("sign_name").value;
     inputFields.forEach((field, index) => {
         let inputData = document.getElementById(field);
         let showData = document.getElementById(showFields[index]);
@@ -35,24 +35,24 @@ function givenInput() {
 }
 
 const inputs = document.querySelectorAll('.userProfile input');
-    function toggleEditMode() {
-        inputs.forEach(input => {
-            input.readOnly = false;
-        });
-        document.getElementById('userStatus').innerText = 'Edit mode is on';
-    }
+function toggleEditMode() {
+    inputs.forEach(input => {
+        input.readOnly = false;
+    });
+    document.getElementById('userStatus').innerText = 'Edit mode is on';
+}
 
-    function saveChanges() {
-        inputs.forEach(input => {
-            input.readOnly = true;
-            document.getElementById("usrname").value = document.getElementById("shwName").value;
-        });
-        document.getElementById('userStatus').innerText = 'Changes are saved!';
-    }
+function saveChanges() {
+    inputs.forEach(input => {
+        input.readOnly = true;
+        document.getElementById("usrname").value = document.getElementById("shwName").value;
+    });
+    document.getElementById('userStatus').innerText = 'Changes are saved!';
+}
 
-    function logout() {
-        window.location.href = 'index.html';
-    }
+function logout() {
+    window.location.href = 'index.html';
+}
 
 //About PArt
 function toggleContent(contentId) {
@@ -161,8 +161,11 @@ const cntntbdy = document.getElementById('cntnt');
 navIcon.addEventListener("click", function () {
     if (navMnu.style.display == "block") {
         navMnu.style.display = "none";
+        navIcon.innerHTML = "&#9776"
     } else {
         navMnu.style.display = "block";
+        navIcon.innerHTML = "&#10060";
+        navIcon.style.color = "white";
     }
 });
 
@@ -349,10 +352,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("acmain").style.display = "none";
     setTimeout(function () {
         if (!formSubmitted) {
-             document.getElementById("overlay").style.display = "block";
-             document.getElementById("acmain").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("acmain").style.display = "block";
         }
-        
+
         document.body.addEventListener("click", function () {
             closeForm();
         });
@@ -360,18 +363,18 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("acmain").addEventListener("click", function (event) {
             event.stopPropagation();
         });
-    }, 10000);
+    }, 50000);
 
     function closeForm() {
         document.getElementById("overlay").style.display = "none";
         document.getElementById("acmain").style.display = "none";
         document.getElementById('viewPage').style.display = "none";
-    
+
         setTimeout(function () {
             document.getElementById("overlay").style.display = "none";
             document.getElementById("acmain").style.display = "block";
             formSubmitted = true;
-        }, 10000);
+        }, 50000);
     }
 });
 
@@ -484,11 +487,19 @@ let playerInfo = document.getElementById('info');
 let showPlayer = document.getElementById('showPlayer');
 let player1 = document.getElementById('playerName1');
 let player2 = document.getElementById('playerName2');
+let player1Wins = document.getElementById('player1Wins');
+let player2Wins = document.getElementById('player2Wins');
+let drawCount = document.getElementById('drawCount');
+let totalRound = document.getElementById('totalRound');
 let name1 = document.getElementById('name1');
 let name2 = document.getElementById('name2');
 
 let curntPlayer = "X";
 let curentPlayer = "X";
+player1Wins = 0;
+player2Wins = 0;
+drawCount = 0;
+totalRound = 1;
 const box = document.querySelectorAll(".board_box");
 const message = document.getElementById('message');
 let resetbord = document.getElementById('rstboard');
@@ -515,17 +526,22 @@ function nxtmove(boxIndex) {
             highLightWinner();
             box.forEach((box) => (box.style.pointerEvents = 'none'));
             if (curntPlayer != "X") {
+                player1Wins++;
                 name1.value = name1.value.toUpperCase();
                 name1.style.color = "red";
                 message.textContent = `Player "${name1.value}" Winner`;
             } else {
+                player2Wins++;
                 name2.value = name2.value.toUpperCase();
                 name2.style.color = "red";
                 message.textContent = `Player "${name2.value}" Winner`;
             }
+            updateWinsCount();
         }
         else if ([...box].every((box) => box.textContent !== '')) {
             message.textContent = "Match Draw";
+            drawCount++;
+            updateWinsCount();
         }
     }
 }
@@ -578,6 +594,26 @@ function resetBoard() {
     name1.style.color = "black";
     name2.style.color = "black";
 }
+
+function updateWinsCount() {
+    document.getElementById('player1Wins').textContent = player1Wins;
+    document.getElementById('player2Wins').textContent = player2Wins;
+    document.getElementById('drawCount').textContent = drawCount;
+    totalRound = player1Wins+player2Wins+drawCount;
+    document.getElementById('totalRound').textContent = totalRound+1;
+}
+
+function resetCount() {
+    player1Wins = 0;
+    player2Wins = 0;
+    drawCount = 0;
+    updateWinsCount();
+    resetBoard();
+    curntPlayer = "X";
+    message.textContent = "Player X turn";
+    totalRound = 1;
+}
+
 resetBoard();
 //message.textContent = "Player X turn";
 
@@ -648,12 +684,15 @@ function disableDay() {
 
 let chckPass = document.getElementById('chckpass');
 let inptPass = document.getElementById('acess2');
+let pwhide = document.getElementById('pwhide');
 
 chckPass.addEventListener("click", function () {
     if (inptPass.type === "password") {
         inptPass.type = "text";
+        pwhide.innerHTML = "hide";
     } else {
         inptPass.type = "password";
+        pwhide.innerText = "show";
     }
 })
 
