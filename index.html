@@ -62,7 +62,8 @@
 
             <div class="apb" style="display: flex; margin-left: 50px;">
                 <button class="apbt" id="lbt" type="submit">Login</button>
-                <input type="checkbox" id="chckpass" style="margin-left: 10px;"><p id="pwhide" style="margin: 5px;">show</p>
+                <input type="checkbox" id="chckpass" style="margin-left: 10px;">
+                <p id="pwhide" style="margin: 5px;">show</p>
             </div>
 
             <p id="acmsg" style="text-align: center; font-size: 14px; margin-top: 10px; color: yellow; height: 8px;">
@@ -85,13 +86,13 @@
                 <div class="nav_icon" id="nav-btn">&#9776</div>
 
                 <div class="nv_mnu" id="nav-mnu">
-                    <ul class="fa fa-user" onclick="openPage('User',this)"><input id="usrname" value=""
+                    <ul class="fa fa-user" onclick="openPage('User', this)"><input id="usrname" value=""
                             onclick="userInfo()" readonly placeholder="User Name"></input></ul>
-                    <ul class="tlink" onclick="openPage('Home',this)" id="defaultOpen">Tic-Tac-Toe</ul>
-                    <ul class="tlink" onclick="openPage('TextU',this)">TextU</ul>
-                    <ul class="tlink" onclick="openPage('calculator',this)">Calculator</ul>
-                    <ul class="tlink" onclick="openPage('Contact',this)">Contact</ul>
-                    <ul class="tlink" onclick="openPage('About',this)">About</ul>
+                    <ul class="tlink" onclick="openPage('Home', this)" id="defaultOpen">Tic-Tac-Toe</ul>
+                    <ul class="tlink" onclick="openPage('TextU', this)">TextU</ul>
+                    <ul class="tlink" onclick="openPage('calculator', this)">Calculator</ul>
+                    <ul class="tlink" onclick="openPage('Contact', this)">Contact</ul>
+                    <ul class="tlink" onclick="openPage('About', this)">About</ul>
                     <ul class="open_f tlink" onclick="open_form()">Login/SignUp</ul>
                 </div>
             </div>
@@ -130,13 +131,15 @@
 
                     <div id="showPlayer">
                         <div id="infoplayer">
-                            <label for="playerName1" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player1-X:- <span class="winCount" id="player1Wins">0</span>
+                            <label for="playerName1" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player1-X:-
+                                <span class="winCount" id="player1Wins">0</span>
                                 <div>
                                     <input class="shwName" id="name1" readonly></input>
                                 </div>
                             </label>
 
-                            <label for="playerName2" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player2-O:- <span class="winCount" id="player2Wins">0</span>
+                            <label for="playerName2" style="margin: 0px 0px 0px 10px; font-weight: 600;">Player2-O:-
+                                <span class="winCount" id="player2Wins">0</span>
                                 <div>
                                     <input class="shwName" id="name2" readonly></input>
                                 </div>
@@ -157,9 +160,9 @@
                         <button class="board_box" onclick="nxtmove(8)"></button>
                     </div>
                     <div class="rst">
-                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: yellow;">New
+                        <button class="rs_t" id="rstboard" onclick="startGame()" style="color: rgb(255, 0, 111);">New
                             Game</button>
-                        <button class="rs_t" id="rstboard" onclick="resetBoard()">RESET</button>
+                        <button class="rs_t fa fa-refresh" id="rstboard" onclick="resetBoard()"></button>
                         <button class="rs_t" id="countReset" onclick="resetCount()">count 0</button>
                     </div>
                     <div class="countInfo">
@@ -326,7 +329,8 @@
 
                     <label for="lgps" class="name">Password:
                         <div>
-                            <input type="password" class="lgfrm" id="lgps" required placeholder="enter previous password">
+                            <input type="password" class="lgfrm" id="lgps" required
+                                placeholder="enter previous password">
                         </div>
                     </label>
 

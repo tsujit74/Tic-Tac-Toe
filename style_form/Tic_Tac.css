@@ -28,6 +28,10 @@
     display: none;
 } */
 
+.fa-refresh{
+    width: 30%;
+}
+
 #infoplayer {
     padding: 10px;
     display: flex;
@@ -147,4 +151,8 @@
     padding: 9px 18px 9px 18px;
 }
 
-@media (max-width:600px) {}
+@media (min-width:600px) {
+    .fa-refresh{
+        width: 10%;
+    }
+}

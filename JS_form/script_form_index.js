@@ -392,7 +392,18 @@ function openPage(pageName, elmnt) {
     }
     document.getElementById(pageName).style.display = "block";
     elmnt.style.color = "yellow";
+
+    history.pushState({ page: pageName }, pageName, `#${pageName}`);
 }
+
+window.onpopstate = function(event) {
+    const pageName = event.state ? event.state.page : "Home"; // Default to Page 1
+    const elmnt = document.querySelector(`[onclick="openPage('${pageName}', this)"]`);
+    if (elmnt) {
+      openPage(pageName, elmnt);
+    }
+  };
+
 document.getElementById("defaultOpen").click();
 
 
