@@ -21,7 +21,15 @@
     cursor: pointer;
     padding: 25px 15px 25px 15px;
     color: white;
-    animation: slideIn 0.2s ease-in-out;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+#info h6 p{
+    color: white;
+    margin: 0px 0px 0px 60%;
+}
+#info h6 p:hover{
+    background-color: rgb(255, 255, 255);;
 }
 /* 
 #showPlayer {
@@ -32,12 +40,18 @@
     width: 30%;
 }
 
-#infoplayer {
-    padding: 10px;
-    display: flex;
+#showPlayer{
     background-color: #ed1e781a;
     width: fit-content;
     margin: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#infoplayer {
+    padding: 8px;
+    display: flex;
+    cursor: pointer;
 }
 
 .gameName {
@@ -51,9 +65,15 @@
     font-size: 16px;
     width: 100px;
     background: none;
-    border: none;
+    border-top: none;
+    border-left:none;
+    border-right:none ;
+    border-bottom-color:#81244c;
+    border-bottom-width: 3px;
+    border-radius: 5px;
     color: rgb(251, 43, 6);
     text-align: center;
+    cursor: pointer;
 }
 
 .pname1 {

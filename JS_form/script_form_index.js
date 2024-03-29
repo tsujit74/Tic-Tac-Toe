@@ -520,11 +520,28 @@ function startGame() {
     resetBoard();
 }
 
+// Info player cross
+let infocrs = document.querySelector('#infocrs');
+infocrs.addEventListener("click",function(){
+    if(player1.value=="" && player2.value==""){
+        player1.value = "Admin";
+        player2.value = "Sujit";
+        playerNam1();
+    }
+    document.getElementById('info').style.display="none";
+})
+
 function playerNam1() {
     name1.value = player1.value;
     name2.value = player2.value;
     playerInfo.style.display = 'none';
     showPlayer.style.display = "block";
+
+    if(player1.value=="" && player2.value==""){
+        player1.value = "Admin";
+        player2.value = "Sujit";
+        playerNam1();
+    }
 }
 
 function nxtmove(boxIndex) {
