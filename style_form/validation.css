@@ -52,6 +52,7 @@
 }
 
 #ascnt1 {
+    display: "none";
     background-color: rgba(255, 9, 9, 0.232);
     background-color: #7b284c;
     cursor: pointer;
